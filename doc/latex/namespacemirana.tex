@@ -1,0 +1,62 @@
+\hypertarget{namespacemirana}{}\section{mirana Module Reference}
+\label{namespacemirana}\index{mirana@{mirana}}
+
+
+Provide the subroutines \& functions for moving mesh computation.  
+
+
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{namespacemirana_aa7c8be04ce9179745b1a1e4562586da2}{ddx}
+\begin{DoxyCompactList}\small\item\em Differentiate with respect to $x$ using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a064528cec3b1c48cf653509ad7e48142}{ddy}
+\begin{DoxyCompactList}\small\item\em Differentiate with respect to $y$ using central difference. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provide the subroutines \& functions for moving mesh computation. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Add differenciation \end{DoxyRefDesc}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{namespacemirana_aa7c8be04ce9179745b1a1e4562586da2}{}\index{mirana@{mirana}!ddx@{ddx}}
+\index{ddx@{ddx}!mirana@{mirana}}
+\subsubsection[{ddx}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::ddx (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacemirana_aa7c8be04ce9179745b1a1e4562586da2}
+
+
+Differentiate with respect to $x$ using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & real N-\/by-\/\+N matrix, index range 1\+:N \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+phi\+\_\+x real (N-\/2)-\/by-\/(N-\/2) matrix, index range 2\+:(N-\/1) 
+\end{DoxyReturn}
+\hypertarget{namespacemirana_a064528cec3b1c48cf653509ad7e48142}{}\index{mirana@{mirana}!ddy@{ddy}}
+\index{ddy@{ddy}!mirana@{mirana}}
+\subsubsection[{ddy}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::ddy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacemirana_a064528cec3b1c48cf653509ad7e48142}
+
+
+Differentiate with respect to $y$ using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & N-\/by-\/\+N matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+phi\+\_\+y (N-\/2)-\/by(N-\/2) matrix 
+\end{DoxyReturn}
