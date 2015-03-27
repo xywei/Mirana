@@ -1,0 +1,130 @@
+\hypertarget{ordinary__diff_8f90}{}\section{src/ordinary\+\_\+diff.f90 File Reference}
+\label{ordinary__diff_8f90}\index{src/ordinary\+\_\+diff.\+f90@{src/ordinary\+\_\+diff.\+f90}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ordinary__diff_8f90_aa47191c9295637e40dbba50694177b10}{d1} (phi, h, phi\+\_\+x)
+\begin{DoxyCompactList}\small\item\em Differentiate with respect to the first dimension using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{ordinary__diff_8f90_a2e0fe5c94e72d06e676e40fae5fb2cd8}{d2} (phi, h, phi\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Differentiate with respect to the second dimension using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{ordinary__diff_8f90_ac5f9f809d18de96aed28e616a00f72c5}{d11} (phi, h, phi\+\_\+xx)
+\begin{DoxyCompactList}\small\item\em Compute the second order derivative along the first dimension using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{ordinary__diff_8f90_a2a1cc40e8717e8628176a3711ca5dc56}{d12} (phi, h, phi\+\_\+xy)
+\begin{DoxyCompactList}\small\item\em Comopute the mixed second order derivative using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{ordinary__diff_8f90_a2797f5c21dca13e9392d662ea45e648f}{d22} (phi, h, phi\+\_\+yy)
+\begin{DoxyCompactList}\small\item\em Compute the second order derivative along the second dimension using central difference. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ordinary__diff_8f90_aa47191c9295637e40dbba50694177b10}{}\index{ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}!d1@{d1}}
+\index{d1@{d1}!ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}}
+\subsubsection[{d1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine d1 (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
+\item[{double precision, intent(in)}]{h, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+x}
+\end{DoxyParamCaption}
+)}\label{ordinary__diff_8f90_aa47191c9295637e40dbba50694177b10}
+
+
+Differentiate with respect to the first dimension using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & real N-\/by-\/\+N matrix. \\
+\hline
+{\em h} & real number, step size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+phi\+\_\+x real N-\/by-\/\+N matrix, only points ranged in 2\+:(N-\/1) are updated. 
+\end{DoxyReturn}
+\hypertarget{ordinary__diff_8f90_ac5f9f809d18de96aed28e616a00f72c5}{}\index{ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}!d11@{d11}}
+\index{d11@{d11}!ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}}
+\subsubsection[{d11}]{\setlength{\rightskip}{0pt plus 5cm}subroutine d11 (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
+\item[{double precision, intent(in)}]{h, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+xx}
+\end{DoxyParamCaption}
+)}\label{ordinary__diff_8f90_ac5f9f809d18de96aed28e616a00f72c5}
+
+
+Compute the second order derivative along the first dimension using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & N-\/by-\/\+N matrix. \\
+\hline
+{\em h} & real number, step size. \\
+\hline
+{\em phy\+\_\+xx} & real N-\/by-\/\+N matrix, only points ranged in 2\+:(N-\/1) are updated. \\
+\hline
+\end{DoxyParams}
+\hypertarget{ordinary__diff_8f90_a2a1cc40e8717e8628176a3711ca5dc56}{}\index{ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}!d12@{d12}}
+\index{d12@{d12}!ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}}
+\subsubsection[{d12}]{\setlength{\rightskip}{0pt plus 5cm}subroutine d12 (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
+\item[{double precision, intent(in)}]{h, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+xy}
+\end{DoxyParamCaption}
+)}\label{ordinary__diff_8f90_a2a1cc40e8717e8628176a3711ca5dc56}
+
+
+Comopute the mixed second order derivative using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & N-\/by-\/\+N matrix. \\
+\hline
+{\em h} & real number, step size. \\
+\hline
+{\em phy\+\_\+xy} & real N-\/by-\/\+N matrix, only points ranged in 2\+:(N-\/1) are updated. \\
+\hline
+\end{DoxyParams}
+\hypertarget{ordinary__diff_8f90_a2e0fe5c94e72d06e676e40fae5fb2cd8}{}\index{ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}!d2@{d2}}
+\index{d2@{d2}!ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}}
+\subsubsection[{d2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine d2 (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
+\item[{double precision, intent(in)}]{h, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+y}
+\end{DoxyParamCaption}
+)}\label{ordinary__diff_8f90_a2e0fe5c94e72d06e676e40fae5fb2cd8}
+
+
+Differentiate with respect to the second dimension using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & real N-\/by-\/\+N matrix \\
+\hline
+{\em h} & real number, step size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+phi\+\_\+y real N-\/by-\/\+N matrix, only points ranged in 2\+:(N-\/1) are updated. 
+\end{DoxyReturn}
+\hypertarget{ordinary__diff_8f90_a2797f5c21dca13e9392d662ea45e648f}{}\index{ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}!d22@{d22}}
+\index{d22@{d22}!ordinary\+\_\+diff.\+f90@{ordinary\+\_\+diff.\+f90}}
+\subsubsection[{d22}]{\setlength{\rightskip}{0pt plus 5cm}subroutine d22 (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
+\item[{double precision, intent(in)}]{h, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+yy}
+\end{DoxyParamCaption}
+)}\label{ordinary__diff_8f90_a2797f5c21dca13e9392d662ea45e648f}
+
+
+Compute the second order derivative along the second dimension using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & N-\/by-\/\+N matrix. \\
+\hline
+{\em h} & real number, step size. \\
+\hline
+{\em phy\+\_\+yy} & real N-\/by-\/\+N matrix, only points ranged in 2\+:(N-\/1) are updated. \\
+\hline
+\end{DoxyParams}

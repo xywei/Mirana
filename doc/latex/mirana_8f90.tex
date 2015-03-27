@@ -8,7 +8,19 @@ module \hyperlink{namespacemirana}{mirana}
 \subsection*{Functions/\+Subroutines}
 \begin{DoxyCompactItemize}
 \item 
-subroutine \hyperlink{namespacemirana_aa7c8be04ce9179745b1a1e4562586da2}{mirana\+::ddx}
-\begin{DoxyCompactList}\small\item\em Differentiate with respect to $x$ using central difference. \end{DoxyCompactList}\item 
-subroutine \hyperlink{namespacemirana_a064528cec3b1c48cf653509ad7e48142}{mirana\+::ddy}
-\begin{DoxyCompactList}\small\item\em Differentiate with respect to $y$ using central difference. \end{DoxyCompactList}\end{DoxyCompactItemize}
+subroutine \hyperlink{namespacemirana_ab002a22665f70b4c65bdcf70ac96d768}{mirana\+::mirana\+\_\+exception} (message)
+\begin{DoxyCompactList}\small\item\em Handling exceptions. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a4009036e8b04ac992641e36d34ab0ed4}{mirana\+::d1} (phi, h, phi\+\_\+x)
+\begin{DoxyCompactList}\small\item\em Differentiate with respect to the first dimension using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3}{mirana\+::d2} (phi, h, phi\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Differentiate with respect to the second dimension using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02}{mirana\+::d11} (phi, h, phi\+\_\+xx)
+\begin{DoxyCompactList}\small\item\em Compute the second order derivative along the first dimension using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4}{mirana\+::d12} (phi, h, phi\+\_\+xy)
+\begin{DoxyCompactList}\small\item\em Comopute the mixed second order derivative using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a9161b0947ddd188ac99d9246a1d81aed}{mirana\+::d22} (phi, h, phi\+\_\+yy)
+\begin{DoxyCompactList}\small\item\em Compute the second order derivative along the second dimension using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_ab052150258d81ff9a91ca5b86f0359b3}{mirana\+::dlp} (phi, h, phi\+\_\+lp)
+\begin{DoxyCompactList}\small\item\em Compute Laplacian using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a53c223d4530275ef3fc6a5820f5b0990}{mirana\+::nmd} (mx, my, hxi, het, jcb, xi\+\_\+x, xi\+\_\+y, et\+\_\+x, et\+\_\+y)
+\begin{DoxyCompactList}\small\item\em (Non-\/conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-\/conservative form central difference. \end{DoxyCompactList}\end{DoxyCompactItemize}

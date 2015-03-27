@@ -101,62 +101,395 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:aa7c8be04ce9179745b1a1e4562586da2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#aa7c8be04ce9179745b1a1e4562586da2">ddx</a></td></tr>
-<tr class="memdesc:aa7c8be04ce9179745b1a1e4562586da2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Differentiate with respect to \(x\) using central difference.  <a href="#aa7c8be04ce9179745b1a1e4562586da2">More...</a><br /></td></tr>
-<tr class="separator:aa7c8be04ce9179745b1a1e4562586da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a064528cec3b1c48cf653509ad7e48142"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a064528cec3b1c48cf653509ad7e48142">ddy</a></td></tr>
-<tr class="memdesc:a064528cec3b1c48cf653509ad7e48142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Differentiate with respect to \(y\) using central difference.  <a href="#a064528cec3b1c48cf653509ad7e48142">More...</a><br /></td></tr>
-<tr class="separator:a064528cec3b1c48cf653509ad7e48142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab002a22665f70b4c65bdcf70ac96d768"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768">mirana_exception</a> (message)</td></tr>
+<tr class="memdesc:ab002a22665f70b4c65bdcf70ac96d768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling exceptions.  <a href="#ab002a22665f70b4c65bdcf70ac96d768">More...</a><br /></td></tr>
+<tr class="separator:ab002a22665f70b4c65bdcf70ac96d768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4009036e8b04ac992641e36d34ab0ed4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a4009036e8b04ac992641e36d34ab0ed4">d1</a> (phi, h, phi_x)</td></tr>
+<tr class="memdesc:a4009036e8b04ac992641e36d34ab0ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Differentiate with respect to the first dimension using central difference.  <a href="#a4009036e8b04ac992641e36d34ab0ed4">More...</a><br /></td></tr>
+<tr class="separator:a4009036e8b04ac992641e36d34ab0ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21348ffe170eafc6fc2a009256b1b6e3"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a21348ffe170eafc6fc2a009256b1b6e3">d2</a> (phi, h, phi_y)</td></tr>
+<tr class="memdesc:a21348ffe170eafc6fc2a009256b1b6e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Differentiate with respect to the second dimension using central difference.  <a href="#a21348ffe170eafc6fc2a009256b1b6e3">More...</a><br /></td></tr>
+<tr class="separator:a21348ffe170eafc6fc2a009256b1b6e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9b1e7b5e38c6a020e05196b452e6d02"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#ab9b1e7b5e38c6a020e05196b452e6d02">d11</a> (phi, h, phi_xx)</td></tr>
+<tr class="memdesc:ab9b1e7b5e38c6a020e05196b452e6d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the second order derivative along the first dimension using central difference.  <a href="#ab9b1e7b5e38c6a020e05196b452e6d02">More...</a><br /></td></tr>
+<tr class="separator:ab9b1e7b5e38c6a020e05196b452e6d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3ac07295401fa4e0da8c4fa3bcc2cd4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#ad3ac07295401fa4e0da8c4fa3bcc2cd4">d12</a> (phi, h, phi_xy)</td></tr>
+<tr class="memdesc:ad3ac07295401fa4e0da8c4fa3bcc2cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comopute the mixed second order derivative using central difference.  <a href="#ad3ac07295401fa4e0da8c4fa3bcc2cd4">More...</a><br /></td></tr>
+<tr class="separator:ad3ac07295401fa4e0da8c4fa3bcc2cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9161b0947ddd188ac99d9246a1d81aed"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a9161b0947ddd188ac99d9246a1d81aed">d22</a> (phi, h, phi_yy)</td></tr>
+<tr class="memdesc:a9161b0947ddd188ac99d9246a1d81aed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the second order derivative along the second dimension using central difference.  <a href="#a9161b0947ddd188ac99d9246a1d81aed">More...</a><br /></td></tr>
+<tr class="separator:a9161b0947ddd188ac99d9246a1d81aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab052150258d81ff9a91ca5b86f0359b3"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#ab052150258d81ff9a91ca5b86f0359b3">dlp</a> (phi, h, phi_lp)</td></tr>
+<tr class="memdesc:ab052150258d81ff9a91ca5b86f0359b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute Laplacian using central difference.  <a href="#ab052150258d81ff9a91ca5b86f0359b3">More...</a><br /></td></tr>
+<tr class="separator:ab052150258d81ff9a91ca5b86f0359b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53c223d4530275ef3fc6a5820f5b0990"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990">nmd</a> (mx, my, hxi, het, jcb, xi_x, xi_y, et_x, et_y)</td></tr>
+<tr class="memdesc:a53c223d4530275ef3fc6a5820f5b0990"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Non-conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-conservative form central difference.  <a href="#a53c223d4530275ef3fc6a5820f5b0990">More...</a><br /></td></tr>
+<tr class="separator:a53c223d4530275ef3fc6a5820f5b0990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provide the subroutines &amp; functions for moving mesh computation. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Add differenciation </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Add mesh derivatives </p>
+<p class="enddd">add laplacian </p>
+</dd></dl>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a class="anchor" id="aa7c8be04ce9179745b1a1e4562586da2"></a>
+<a class="anchor" id="a4009036e8b04ac992641e36d34ab0ed4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine mirana::ddx </td>
+          <td class="memname">subroutine mirana::d1 </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">double precision, dimension(:,:), intent(in), allocatable&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, intent(in)&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>phi_x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Differentiate with respect to the first dimension using central difference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phi</td><td>real N-by-N matrix. </td></tr>
+    <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>phi_x real N-by-N matrix, only points ranged in 2:(N-1) are updated. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab9b1e7b5e38c6a020e05196b452e6d02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mirana::d11 </td>
+          <td>(</td>
+          <td class="paramtype">double precision, dimension(:,:), intent(in), allocatable&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, intent(in)&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>phi_xx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the second order derivative along the first dimension using central difference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phi</td><td>N-by-N matrix. </td></tr>
+    <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
+    <tr><td class="paramname">phi_xx</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad3ac07295401fa4e0da8c4fa3bcc2cd4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mirana::d12 </td>
+          <td>(</td>
+          <td class="paramtype">double precision, dimension(:,:), intent(in), allocatable&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, intent(in)&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>phi_xy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comopute the mixed second order derivative using central difference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phi</td><td>N-by-N matrix. </td></tr>
+    <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
+    <tr><td class="paramname">phi_xy</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a21348ffe170eafc6fc2a009256b1b6e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mirana::d2 </td>
+          <td>(</td>
+          <td class="paramtype">double precision, dimension(:,:), intent(in), allocatable&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, intent(in)&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>phi_y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Differentiate with respect to the second dimension using central difference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phi</td><td>real N-by-N matrix </td></tr>
+    <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>phi_y real N-by-N matrix, only points ranged in 2:(N-1) are updated. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9161b0947ddd188ac99d9246a1d81aed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mirana::d22 </td>
+          <td>(</td>
+          <td class="paramtype">double precision, dimension(:,:), intent(in), allocatable&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, intent(in)&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>phi_yy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the second order derivative along the second dimension using central difference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phi</td><td>N-by-N real matrix. </td></tr>
+    <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
+    <tr><td class="paramname">phi_yy</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab052150258d81ff9a91ca5b86f0359b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mirana::dlp </td>
+          <td>(</td>
+          <td class="paramtype">double precision, dimension(:,:), intent(in), allocatable&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, intent(in)&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>phi_lp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute Laplacian using central difference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phi</td><td>N-by-N matrix. </td></tr>
+    <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
+    <tr><td class="paramname">phi_lp</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab002a22665f70b4c65bdcf70ac96d768"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mirana::mirana_exception </td>
+          <td>(</td>
+          <td class="paramtype">character, dimension(128), intent(in)&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Differentiate with respect to \(x\) using central difference. </p>
+<p>Handling exceptions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">phi</td><td>real N-by-N matrix, index range 1:N </td></tr>
+    <tr><td class="paramname">n</td><td>integer, exit code </td></tr>
+    <tr><td class="paramname">message</td><td>string with length 128, error message. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>phi_x real (N-2)-by-(N-2) matrix, index range 2:(N-1) </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a064528cec3b1c48cf653509ad7e48142"></a>
+<a class="anchor" id="a53c223d4530275ef3fc6a5820f5b0990"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine mirana::ddy </td>
+          <td class="memname">subroutine mirana::nmd </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">double precision, dimension(:,:), intent(in), allocatable&#160;</td>
+          <td class="paramname"><em>mx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(in), allocatable&#160;</td>
+          <td class="paramname"><em>my</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, intent(in)&#160;</td>
+          <td class="paramname"><em>hxi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, intent(in)&#160;</td>
+          <td class="paramname"><em>het</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>jcb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>xi_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>xi_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>et_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>et_y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Differentiate with respect to \(y\) using central difference. </p>
+<p>(Non-conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-conservative form central difference. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">phi</td><td>N-by-N matrix </td></tr>
+    <tr><td class="paramname">mx</td><td>N-by-N real matrix, x-coordinate of mesh grid. </td></tr>
+    <tr><td class="paramname">my</td><td>N-by-N real matrix, y-coordinate of mesh grid. </td></tr>
+    <tr><td class="paramname">hxi</td><td>real number, step size in computational domain along \(\xi\) direction. </td></tr>
+    <tr><td class="paramname">het</td><td>real number, step size in computational domain along \(\eta\) direction. </td></tr>
+    <tr><td class="paramname">jcb</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+    <tr><td class="paramname">xi_x</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+    <tr><td class="paramname">xi_y</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+    <tr><td class="paramname">et_x</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+    <tr><td class="paramname">et_y</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>phi_y (N-2)-by(N-2) matrix </dd></dl>
 
 </div>
 </div>
