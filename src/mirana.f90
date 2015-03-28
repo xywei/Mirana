@@ -20,6 +20,18 @@ contains
     write(*,*) message
     stop 1
   end subroutine mirana_exception
+
+  !> Allocate memory for new arrays
+  !!
+  subroutine mirana_memory(name, dim)
+    implicit none
+    double precision, allocatable, dimension(:,:), intent(inout) :: name
+    integer, intent(in) :: dim
+    if (allocated(name)) then
+       call mirana_exception("Error in module Mirana allocating memory: repeated allocation!")
+    end if
+    
+  end subroutine mirana_memory
     
   !> Differentiate with respect to the first dimension using central difference.
   !! @param phi real N-by-N matrix.
