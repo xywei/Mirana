@@ -2,71 +2,60 @@
 Program example_2
   use Mirana
   implicit none
-  integer, parameter :: n = 1000
+  integer, parameter :: n1 = 1000, n2 = 500
   double precision, parameter :: L = 2.0
-  double precision :: h1,h2,ej,exi1,exi2,eet1,eet2
+  double precision :: h1,h2,ej,exi1,exi2,eet1,eet2,x,y
   integer :: i,j
-  double precision, dimension(:,:),allocatable :: mesh1,mesh2,jocob,xi1,xi2,et1,et2
-  allocate(p(n,n))
-  allocate(px(n,n))
-  allocate(py(n,n))
-  allocate(pxx(n,n))
-  allocate(pyy(n,n))
-  allocate(pxy(n,n))
-  allocate(pl(n,n))
-  write(*,*) 'Hello, this is example_1, testing for ordinary differentiation'
-  h = L / n
-  do i = 1,n
-     do j = 1,n
-        x = h * i
-        y = h * j
-        p(i,j) = sin(2*x)*cos(3*y)
+  double precision, dimension(:,:),allocatable :: mesh1,mesh2,jacob,xi1,xi2,et1,et2
+  allocate(mesh1(n1,n2))
+  allocate(mesh2(n1,n2))
+  allocate(jacob(n1,n2))
+  allocate(xi1(n1,n2))
+  allocate(xi2(n1,n2))
+  allocate(et1(n1,n2))
+  allocate(et2(n1,n2))
+  write(*,*) 'Hello, this is example_2, testing for mesh differentiation.'
+  h1 = L / n1
+  h2 = L / n2
+  do i = 1,n1
+     do j = 1,n2
+        x = h1 * i
+        y = h2 * j
+        mesh1(i,j) = (x-L/2.0)**3 + 1
+        mesh2(i,j) = (y-L/2.0)**5 + 1
      end do
   end do
 
-  call d1(p, h, px)
-  call d2(p, h, py)
-  call d12(p, h, pxy)
-  call d11(p, h, pxx)
-  call d22(p, h, pyy)
-  call dlp(p, h, pl)
+  call nmd(mesh1,mesh2,h1,h2,jacob,xi1,xi2,et1,et2)
 
-  e1 = 0
-  e2 = 0
-  e11 = 0
-  e12 = 0
-  e22 = 0
-  elp = 0
-  do i = 1,n
-     do j = 1,n
-        x = h * i
-        y = h * j
-        if (i>1 .and. i<n) then
-           e1 = e1 + abs( px(i,j) - 2*cos(2*x)*cos(3*y) )
-           e11 = e11 + abs( pxx(i,j) + 4*sin(2*x)*cos(3*y) )
-        end if
-        if (j>1 .and. j<n) then
-           e2 = e2 + abs( py(i,j) + 3*sin(2*x)*sin(3*y) )
-           e22 = e22 + abs( pyy(i,j) + 9*sin(2*x)*cos(3*y) )
-        end if
-        if (i>1 .and. j>1 .and. i<n .and. j<n) then
-           e12 = e12 + abs( pxy(i,j) + 6*cos(2*x)*sin(3*y) )
-           elp = elp + abs( pl(i,j) + 4*sin(2*x)*cos(3*y) + 9*sin(2*x)*cos(3*y) )
-        end if        
+  ej = 0
+  exi1 = 0
+  exi2 = 0
+  eet1 = 0
+  eet2 = 0
+  do i = 1,n1
+     do j = 1,n2
+        x = h1 * i
+        y = h2 * j
+        exi1 = exi1 + 0.0
      end do
   end do
 
   write(*,*) "==========================="
   write(*,*) "Error noms: "
-  write(*,*) "D1: ", e1/(n-2)**2
-  write(*,*) "D2: ", e2/(n-2)**2
-  write(*,*) "D11: ", e11/(n-2)**2
-  write(*,*) "D12: ", e12/(n-2)**2
-  write(*,*) "D22: ", e22/(n-2)**2
-  write(*,*) "Dlp: ", elp/(n-2)**2
+  write(*,*) "Jacobian: ", ej/n1/n2
+  write(*,*) "xi_x: ", exi1/n1/n2
+  write(*,*) "xi_y: ", exi2/n1/n2
+  write(*,*) "eta_x: ", eet1/n1/n2
+  write(*,*) "eta_y: ", eet2/n1/n2
   write(*,*) "==========================="
 
-  deallocate( p ); deallocate( px ); deallocate( py )
-  deallocate( pxx ); deallocate( pyy ); deallocate( pxy )  
+  deallocate( mesh1 )
+  deallocate( mesh2 )
+  deallocate( jacob )
+  deallocate( xi1 )
+  deallocate( xi2 )
+  deallocate( et1 )
+  deallocate( et2 )  
 end Program example_2
 

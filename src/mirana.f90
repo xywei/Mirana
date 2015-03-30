@@ -122,7 +122,8 @@ contains
     end if
     n1 = size(phi,1)
     n2 = size(phi,2)
-    phi_xy(2:(n1-1),2:(n2-1)) = ( phi(1:(n1-2),1:(n2-2)) + phi(3:n1,3:n2) - phi(1:(n1-2),3:n2) - phi(3:n1,1:(n2-2)) ) / (4.0 * h1 * h2)
+    phi_xy(2:(n1-1),2:(n2-1)) = ( phi(1:(n1-2),1:(n2-2)) + phi(3:n1,3:n2) - &
+                                phi(1:(n1-2),3:n2) - phi(3:n1,1:(n2-2)) ) / (4.0 * h1 * h2)
   end subroutine d12
 
   !> Compute the second order derivative along the second dimension using central difference.
@@ -222,7 +223,7 @@ contains
     double precision, allocatable, dimension(:,:), intent(inout) :: x1,x2,y1,y2
     n1 = size(x1,1)
     n2 = size(x1,2)
-    if (.not.allocated(x1) .or. .not.allocated(x2) .or. & 
+    if (.not.allocated(x1) .or. .not.allocated(x2) .or. &
          .not.allocated(y1) .or. .not.allocated(y2) ) then
        call mirana_exception("Error in module Mirana.mbc_d: array not allocated!")
     end if
