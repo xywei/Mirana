@@ -104,6 +104,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ab002a22665f70b4c65bdcf70ac96d768"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768">mirana_exception</a> (message)</td></tr>
 <tr class="memdesc:ab002a22665f70b4c65bdcf70ac96d768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling exceptions.  <a href="#ab002a22665f70b4c65bdcf70ac96d768">More...</a><br /></td></tr>
 <tr class="separator:ab002a22665f70b4c65bdcf70ac96d768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7398bd6141d1b739721cefb235bf4c4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#af7398bd6141d1b739721cefb235bf4c4">mirana_memory</a> (name, dim)</td></tr>
+<tr class="memdesc:af7398bd6141d1b739721cefb235bf4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate memory for new arrays.  <a href="#af7398bd6141d1b739721cefb235bf4c4">More...</a><br /></td></tr>
+<tr class="separator:af7398bd6141d1b739721cefb235bf4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4009036e8b04ac992641e36d34ab0ed4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a4009036e8b04ac992641e36d34ab0ed4">d1</a> (phi, h, phi_x)</td></tr>
 <tr class="memdesc:a4009036e8b04ac992641e36d34ab0ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Differentiate with respect to the first dimension using central difference.  <a href="#a4009036e8b04ac992641e36d34ab0ed4">More...</a><br /></td></tr>
 <tr class="separator:a4009036e8b04ac992641e36d34ab0ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,11 +128,14 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a53c223d4530275ef3fc6a5820f5b0990"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990">nmd</a> (mx, my, hxi, het, jcb, xi_x, xi_y, et_x, et_y)</td></tr>
 <tr class="memdesc:a53c223d4530275ef3fc6a5820f5b0990"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Non-conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-conservative form central difference.  <a href="#a53c223d4530275ef3fc6a5820f5b0990">More...</a><br /></td></tr>
 <tr class="separator:a53c223d4530275ef3fc6a5820f5b0990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a514d206d0e8ae53253938d2aff553"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a65a514d206d0e8ae53253938d2aff553">mbc_d</a> (x1, x2, y1, y2)</td></tr>
+<tr class="memdesc:a65a514d206d0e8ae53253938d2aff553"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh.  <a href="#a65a514d206d0e8ae53253938d2aff553">More...</a><br /></td></tr>
+<tr class="separator:a65a514d206d0e8ae53253938d2aff553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provide the subroutines &amp; functions for moving mesh computation. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Add mesh derivatives </p>
-<p class="enddd">add laplacian </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Add mesh derivatives. </p>
+<p class="enddd">add laplacian. </p>
 </dd></dl>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a class="anchor" id="a4009036e8b04ac992641e36d34ab0ed4"></a>
@@ -170,7 +176,28 @@ Functions/Subroutines</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>phi_x real N-by-N matrix, only points ranged in 2:(N-1) are updated. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>phi_x real N-by-N matrix, only points ranged in [2:(N-1)]X[1:N] are updated. </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_cgraph.png" border="0" usemap="#namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_cgraph" alt=""/></div>
+<map name="namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_cgraph" id="namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_cgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="136,5,307,32"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph.png" border="0" usemap="#namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph" alt=""/></div>
+<map name="namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph" id="namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph">
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="141,5,226,32"/>
+<area shape="rect" id="node3" href="namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="136,56,231,83"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -209,10 +236,31 @@ Functions/Subroutines</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">phi</td><td>N-by-N matrix. </td></tr>
     <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
-    <tr><td class="paramname">phi_xx</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+    <tr><td class="paramname">phi_xx</td><td>real N-by-N matrix, only points ranged in [2:(N-1)]X[1:N] are updated. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02_cgraph.png" border="0" usemap="#namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02_cgraph" alt=""/></div>
+<map name="namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02_cgraph" id="namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02_cgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="144,5,315,32"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02_icgraph.png" border="0" usemap="#namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02_icgraph" alt=""/></div>
+<map name="namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02_icgraph" id="namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02_icgraph">
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="279,5,364,32"/>
+<area shape="rect" id="node3" href="namespacemirana.html#ab052150258d81ff9a91ca5b86f0359b3" title="Compute Laplacian using central difference. " alt="" coords="144,31,231,57"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -251,10 +299,30 @@ Functions/Subroutines</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">phi</td><td>N-by-N matrix. </td></tr>
     <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
-    <tr><td class="paramname">phi_xy</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+    <tr><td class="paramname">phi_xy</td><td>real N-by-N matrix, only points ranged in [2:(N-1)]^2 are updated. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_cgraph.png" border="0" usemap="#namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_cgraph" alt=""/></div>
+<map name="namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_cgraph" id="namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_cgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="144,5,315,32"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_icgraph.png" border="0" usemap="#namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_icgraph" alt=""/></div>
+<map name="namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_icgraph" id="namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_icgraph">
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="144,5,229,32"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -296,7 +364,28 @@ Functions/Subroutines</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>phi_y real N-by-N matrix, only points ranged in 2:(N-1) are updated. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>phi_y real N-by-N matrix, only points ranged in [1:N]X[2:(N-1)] are updated. </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_cgraph.png" border="0" usemap="#namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_cgraph" alt=""/></div>
+<map name="namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_cgraph" id="namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_cgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="136,5,307,32"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph.png" border="0" usemap="#namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph" alt=""/></div>
+<map name="namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph" id="namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph">
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="141,5,226,32"/>
+<area shape="rect" id="node3" href="namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="136,56,231,83"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -335,10 +424,31 @@ Functions/Subroutines</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">phi</td><td>N-by-N real matrix. </td></tr>
     <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
-    <tr><td class="paramname">phi_yy</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+    <tr><td class="paramname">phi_yy</td><td>real N-by-N matrix, only points ranged in [1:N]X[2:(N-1)] are updated. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_a9161b0947ddd188ac99d9246a1d81aed_cgraph.png" border="0" usemap="#namespacemirana_a9161b0947ddd188ac99d9246a1d81aed_cgraph" alt=""/></div>
+<map name="namespacemirana_a9161b0947ddd188ac99d9246a1d81aed_cgraph" id="namespacemirana_a9161b0947ddd188ac99d9246a1d81aed_cgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="144,5,315,32"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_a9161b0947ddd188ac99d9246a1d81aed_icgraph.png" border="0" usemap="#namespacemirana_a9161b0947ddd188ac99d9246a1d81aed_icgraph" alt=""/></div>
+<map name="namespacemirana_a9161b0947ddd188ac99d9246a1d81aed_icgraph" id="namespacemirana_a9161b0947ddd188ac99d9246a1d81aed_icgraph">
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="279,5,364,32"/>
+<area shape="rect" id="node3" href="namespacemirana.html#ab052150258d81ff9a91ca5b86f0359b3" title="Compute Laplacian using central difference. " alt="" coords="144,31,231,57"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -377,10 +487,106 @@ Functions/Subroutines</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">phi</td><td>N-by-N matrix. </td></tr>
     <tr><td class="paramname">h</td><td>real number, step size. </td></tr>
-    <tr><td class="paramname">phi_lp</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
+    <tr><td class="paramname">phi_lp</td><td>real N-by-N matrix, only points ranged in [2:(N-1)]^2 are updated. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_cgraph.png" border="0" usemap="#namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_cgraph" alt=""/></div>
+<map name="namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_cgraph" id="namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_cgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="279,20,449,47"/>
+<area shape="rect" id="node3" href="namespacemirana.html#ab9b1e7b5e38c6a020e05196b452e6d02" title="Compute the second order derivative along the first dimension using central difference. " alt="" coords="140,20,231,47"/>
+<area shape="rect" id="node4" href="namespacemirana.html#a9161b0947ddd188ac99d9246a1d81aed" title="Compute the second order derivative along the second dimension using central difference. " alt="" coords="140,71,231,98"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_icgraph.png" border="0" usemap="#namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_icgraph" alt=""/></div>
+<map name="namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_icgraph" id="namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_icgraph">
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="140,5,225,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a65a514d206d0e8ae53253938d2aff553"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mirana::mbc_d </td>
+          <td>(</td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>y2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh. </p>
+<dl class="section note"><dt>Note</dt><dd>Be sure to call Mirana::d1 and Mirana::d2 on the mesh before calling this subroutine! </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x1,N-by-N</td><td>real array, resulted from call d1(mx,hxi,x1). </td></tr>
+    <tr><td class="paramname">x2,N-by-N</td><td>real array, resulted from call d2(mx,het,x2). </td></tr>
+    <tr><td class="paramname">y1,N-by-N</td><td>real array, resulted from call d1(my,hxi,y1). </td></tr>
+    <tr><td class="paramname">y2,N-by-N</td><td>real array, resulted from call d2(my,het,y2). </td></tr>
+  </table>
+  </dd>
+</dl>
+<ul>
+<li>Use uniform mesh at left/right boundary.</li>
+<li>\(\xi\)-mesh is parallel to the wall at floor/ceiling. </li>
+</ul>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_a65a514d206d0e8ae53253938d2aff553_cgraph.png" border="0" usemap="#namespacemirana_a65a514d206d0e8ae53253938d2aff553_cgraph" alt=""/></div>
+<map name="namespacemirana_a65a514d206d0e8ae53253938d2aff553_cgraph" id="namespacemirana_a65a514d206d0e8ae53253938d2aff553_cgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="161,5,332,32"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_a65a514d206d0e8ae53253938d2aff553_icgraph.png" border="0" usemap="#namespacemirana_a65a514d206d0e8ae53253938d2aff553_icgraph" alt=""/></div>
+<map name="namespacemirana_a65a514d206d0e8ae53253938d2aff553_icgraph" id="namespacemirana_a65a514d206d0e8ae53253938d2aff553_icgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="161,5,256,32"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -401,11 +607,76 @@ Functions/Subroutines</h2></td></tr>
 <p>Handling exceptions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>integer, exit code </td></tr>
+    <tr><td class="paramname">n</td><td>integer, exit code. </td></tr>
     <tr><td class="paramname">message</td><td>string with length 128, error message. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_ab002a22665f70b4c65bdcf70ac96d768_icgraph.png" border="0" usemap="#namespacemirana_ab002a22665f70b4c65bdcf70ac96d768_icgraph" alt=""/></div>
+<map name="namespacemirana_ab002a22665f70b4c65bdcf70ac96d768_icgraph" id="namespacemirana_ab002a22665f70b4c65bdcf70ac96d768_icgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#af7398bd6141d1b739721cefb235bf4c4" title="Allocate memory for new arrays. " alt="" coords="224,5,387,32"/>
+<area shape="rect" id="node3" href="namespacemirana.html#a4009036e8b04ac992641e36d34ab0ed4" title="Differentiate with respect to the first dimension using central difference. " alt="" coords="264,107,347,133"/>
+<area shape="rect" id="node5" href="namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="435,201,529,228"/>
+<area shape="rect" id="node6" href="namespacemirana.html#a21348ffe170eafc6fc2a009256b1b6e3" title="Differentiate with respect to the second dimension using central difference. " alt="" coords="264,259,347,285"/>
+<area shape="rect" id="node7" href="namespacemirana.html#ab9b1e7b5e38c6a020e05196b452e6d02" title="Compute the second order derivative along the first dimension using central difference. " alt="" coords="260,411,351,437"/>
+<area shape="rect" id="node8" href="namespacemirana.html#ab052150258d81ff9a91ca5b86f0359b3" title="Compute Laplacian using central difference. " alt="" coords="439,360,525,387"/>
+<area shape="rect" id="node9" href="namespacemirana.html#ad3ac07295401fa4e0da8c4fa3bcc2cd4" title="Comopute the mixed second order derivative using central difference. " alt="" coords="437,63,527,89"/>
+<area shape="rect" id="node10" href="namespacemirana.html#a9161b0947ddd188ac99d9246a1d81aed" title="Compute the second order derivative along the second dimension using central difference. " alt="" coords="260,309,351,336"/>
+<area shape="rect" id="node11" href="namespacemirana.html#a65a514d206d0e8ae53253938d2aff553" title="(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh..." alt="" coords="251,208,359,235"/>
+<area shape="rect" id="node4" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="577,284,663,311"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af7398bd6141d1b739721cefb235bf4c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mirana::mirana_memory </td>
+          <td>(</td>
+          <td class="paramtype">double precision, dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>dim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate memory for new arrays. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>real allocatable 2-dim array (not allocated). </td></tr>
+    <tr><td class="paramname">dim</td><td>integer, dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>name dim-by-dim real array with memory allocated. </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_af7398bd6141d1b739721cefb235bf4c4_cgraph.png" border="0" usemap="#namespacemirana_af7398bd6141d1b739721cefb235bf4c4_cgraph" alt=""/></div>
+<map name="namespacemirana_af7398bd6141d1b739721cefb235bf4c4_cgraph" id="namespacemirana_af7398bd6141d1b739721cefb235bf4c4_cgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="216,5,387,32"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -478,18 +749,35 @@ Functions/Subroutines</h2></td></tr>
 <p>(Non-conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-conservative form central difference. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mx</td><td>N-by-N real matrix, x-coordinate of mesh grid. </td></tr>
-    <tr><td class="paramname">my</td><td>N-by-N real matrix, y-coordinate of mesh grid. </td></tr>
+    <tr><td class="paramname">mx</td><td>N-by-N real matrix, x-coordinate of mesh grid (fully determined). </td></tr>
+    <tr><td class="paramname">my</td><td>N-by-N real matrix, y-coordinate of mesh grid (fully determined). </td></tr>
     <tr><td class="paramname">hxi</td><td>real number, step size in computational domain along \(\xi\) direction. </td></tr>
     <tr><td class="paramname">het</td><td>real number, step size in computational domain along \(\eta\) direction. </td></tr>
-    <tr><td class="paramname">jcb</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
-    <tr><td class="paramname">xi_x</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
-    <tr><td class="paramname">xi_y</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
-    <tr><td class="paramname">et_x</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
-    <tr><td class="paramname">et_y</td><td>real N-by-N matrix, only points ranged in 2:(N-1) are updated. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>jcb real N-by-N matrix, the Jacobian \(J\). </dd>
+<dd>
+xi_x real N-by-N matrix, \(\partial\xi/\partial x\). </dd>
+<dd>
+xi_y real N-by-N matrix, \(\partial\xi/\partial y\). </dd>
+<dd>
+et_x real N-by-N matrix, \(\partial\eta/\partial x\). </dd>
+<dd>
+et_y real N-by-N matrix, \(\partial\eta/\partial y\). </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemirana_a53c223d4530275ef3fc6a5820f5b0990_cgraph.png" border="0" usemap="#namespacemirana_a53c223d4530275ef3fc6a5820f5b0990_cgraph" alt=""/></div>
+<map name="namespacemirana_a53c223d4530275ef3fc6a5820f5b0990_cgraph" id="namespacemirana_a53c223d4530275ef3fc6a5820f5b0990_cgraph">
+<area shape="rect" id="node2" href="namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="304,51,475,77"/>
+<area shape="rect" id="node3" href="namespacemirana.html#a4009036e8b04ac992641e36d34ab0ed4" title="Differentiate with respect to the first dimension using central difference. " alt="" coords="161,25,243,52"/>
+<area shape="rect" id="node4" href="namespacemirana.html#a21348ffe170eafc6fc2a009256b1b6e3" title="Differentiate with respect to the second dimension using central difference. " alt="" coords="161,76,243,103"/>
+<area shape="rect" id="node5" href="namespacemirana.html#a65a514d206d0e8ae53253938d2aff553" title="(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh..." alt="" coords="148,127,256,153"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>

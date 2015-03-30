@@ -1,0 +1,9 @@
+<map id="example_1" name="example_1">
+<area shape="rect" id="node2" href="$namespacemirana.html#a4009036e8b04ac992641e36d34ab0ed4" title="Differentiate with respect to the first dimension using central difference. " alt="" coords="281,5,364,32"/>
+<area shape="rect" id="node4" href="$namespacemirana.html#a21348ffe170eafc6fc2a009256b1b6e3" title="Differentiate with respect to the second dimension using central difference. " alt="" coords="143,56,225,83"/>
+<area shape="rect" id="node5" href="$namespacemirana.html#ad3ac07295401fa4e0da8c4fa3bcc2cd4" title="Comopute the mixed second order derivative using central difference. " alt="" coords="139,107,229,133"/>
+<area shape="rect" id="node6" href="$namespacemirana.html#ab9b1e7b5e38c6a020e05196b452e6d02" title="Compute the second order derivative along the first dimension using central difference. " alt="" coords="277,157,368,184"/>
+<area shape="rect" id="node7" href="$namespacemirana.html#a9161b0947ddd188ac99d9246a1d81aed" title="Compute the second order derivative along the second dimension using central difference. " alt="" coords="277,259,368,285"/>
+<area shape="rect" id="node8" href="$namespacemirana.html#ab052150258d81ff9a91ca5b86f0359b3" title="Compute Laplacian using central difference. " alt="" coords="141,208,227,235"/>
+<area shape="rect" id="node3" href="$namespacemirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="416,132,587,159"/>
+</map>
