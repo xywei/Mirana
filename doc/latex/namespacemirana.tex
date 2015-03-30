@@ -10,22 +10,34 @@ Provide the subroutines \& functions for moving mesh computation.
 \item 
 subroutine \hyperlink{namespacemirana_ab002a22665f70b4c65bdcf70ac96d768}{mirana\+\_\+exception} (message)
 \begin{DoxyCompactList}\small\item\em Handling exceptions. \end{DoxyCompactList}\item 
-subroutine \hyperlink{namespacemirana_af7398bd6141d1b739721cefb235bf4c4}{mirana\+\_\+memory} (name, dim)
+subroutine \hyperlink{namespacemirana_acccf612b21e3e65bd3a78131c48afe2b}{mirana\+\_\+memory} (name, dim1, dim2)
 \begin{DoxyCompactList}\small\item\em Allocate memory for new arrays. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a9cbee1a318e5e828590c9ccaa51c8472}{save\+\_\+mesh} (mx, my)
+\begin{DoxyCompactList}\small\item\em Write mesh data into .dat file for plot. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a4009036e8b04ac992641e36d34ab0ed4}{d1} (phi, h, phi\+\_\+x)
 \begin{DoxyCompactList}\small\item\em Differentiate with respect to the first dimension using central difference. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3}{d2} (phi, h, phi\+\_\+y)
 \begin{DoxyCompactList}\small\item\em Differentiate with respect to the second dimension using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_acc84c99770972f6328e89ac04ac67153}{d1h1} (phi, h, phi\+\_\+1h)
+\begin{DoxyCompactList}\small\item\em Compute the derivative along the 1st direction at the 1st kind of half points using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a9d6168761271912ebfea872e9f322cdc}{d1h2} (phi, h, phi\+\_\+1h)
+\begin{DoxyCompactList}\small\item\em Compute the derivative along the 1st direction at the 2nd kind of half points using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a9341f957abd27c5132c557ae873055bd}{d2h1} (phi, h, phi\+\_\+2h)
+\begin{DoxyCompactList}\small\item\em Compute the derivative along the 2nd direction at the 1st kind of half points using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a4f47c93df57dd51d1414b2514fd1b339}{d2h2} (phi, h, phi\+\_\+2h)
+\begin{DoxyCompactList}\small\item\em Compute the derivative along the 2nd direction at the 2nd kind of half points using central difference. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02}{d11} (phi, h, phi\+\_\+xx)
 \begin{DoxyCompactList}\small\item\em Compute the second order derivative along the first dimension using central difference. \end{DoxyCompactList}\item 
-subroutine \hyperlink{namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4}{d12} (phi, h, phi\+\_\+xy)
+subroutine \hyperlink{namespacemirana_ae9ee4058ea2b6238b6b745e4468f6a8e}{d12} (phi, h1, h2, phi\+\_\+xy)
 \begin{DoxyCompactList}\small\item\em Comopute the mixed second order derivative using central difference. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a9161b0947ddd188ac99d9246a1d81aed}{d22} (phi, h, phi\+\_\+yy)
 \begin{DoxyCompactList}\small\item\em Compute the second order derivative along the second dimension using central difference. \end{DoxyCompactList}\item 
-subroutine \hyperlink{namespacemirana_ab052150258d81ff9a91ca5b86f0359b3}{dlp} (phi, h, phi\+\_\+lp)
+subroutine \hyperlink{namespacemirana_a353bce8a93046cd8fd25021634d6503e}{dlp} (phi, h1, h2, phi\+\_\+lp)
 \begin{DoxyCompactList}\small\item\em Compute Laplacian using central difference. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a53c223d4530275ef3fc6a5820f5b0990}{nmd} (mx, my, hxi, het, jcb, xi\+\_\+x, xi\+\_\+y, et\+\_\+x, et\+\_\+y)
 \begin{DoxyCompactList}\small\item\em (Non-\/conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-\/conservative form central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a7530ea2e7b2dfe85f3a088d24de59f1d}{greek} (mx, my, xix, xiy, etx, ety, h1, h2, alp, bet)
+\begin{DoxyCompactList}\small\item\em Compute the two coefficients for transformed laplacian $\alpha,\beta$. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a65a514d206d0e8ae53253938d2aff553}{mbc\+\_\+d} (x1, x2, y1, y2)
 \begin{DoxyCompactList}\small\item\em (Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -34,9 +46,7 @@ subroutine \hyperlink{namespacemirana_a65a514d206d0e8ae53253938d2aff553}{mbc\+\_
 Provide the subroutines \& functions for moving mesh computation. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000001}{Todo}]Add mesh derivatives. 
-
-add laplacian. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000001}{Todo}]finish \hyperlink{namespacemirana_a7530ea2e7b2dfe85f3a088d24de59f1d}{greek()} \end{DoxyRefDesc}
 
 
 \subsection{Function/\+Subroutine Documentation}
@@ -55,13 +65,13 @@ Differentiate with respect to the first dimension using central difference.
 
 
 \begin{DoxyParams}{Parameters}
-{\em phi} & real N-\/by-\/\+N matrix. \\
+{\em phi} & real N1-\/by-\/\+N2 matrix. \\
 \hline
 {\em h} & real number, step size. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-phi\+\_\+x real N-\/by-\/\+N matrix, only points ranged in \mbox{[}2\+:(N-\/1)\mbox{]}X\mbox{[}1\+:N\mbox{]} are updated. 
+phi\+\_\+x real N1-\/by-\/\+N2 matrix, only points ranged in \mbox{[}2\+:(N1-\/1)\mbox{]}X\mbox{[}1\+:N2\mbox{]} are updated. 
 \end{DoxyReturn}
 
 
@@ -80,7 +90,7 @@ Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=249pt]{namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph}
+\includegraphics[width=350pt]{namespacemirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph}
 \end{center}
 \end{figure}
 
@@ -100,11 +110,11 @@ Compute the second order derivative along the first dimension using central diff
 
 
 \begin{DoxyParams}{Parameters}
-{\em phi} & N-\/by-\/\+N matrix. \\
+{\em phi} & N1-\/by-\/\+N2 matrix. \\
 \hline
 {\em h} & real number, step size. \\
 \hline
-{\em phi\+\_\+xx} & real N-\/by-\/\+N matrix, only points ranged in \mbox{[}2\+:(N-\/1)\mbox{]}X\mbox{[}1\+:N\mbox{]} are updated. \\
+{\em phi\+\_\+xx} & real N1-\/by-\/\+N2 matrix, only points ranged in \mbox{[}2\+:(N-\/1)\mbox{]}X\mbox{[}1\+:N\mbox{]} are updated. \\
 \hline
 \end{DoxyParams}
 
@@ -129,26 +139,29 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4}{}\index{mirana@{mirana}!d12@{d12}}
+\hypertarget{namespacemirana_ae9ee4058ea2b6238b6b745e4468f6a8e}{}\index{mirana@{mirana}!d12@{d12}}
 \index{d12@{d12}!mirana@{mirana}}
 \subsubsection[{d12}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::d12 (
 \begin{DoxyParamCaption}
 \item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
-\item[{double precision, intent(in)}]{h, }
+\item[{double precision, intent(in)}]{h1, }
+\item[{double precision, intent(in)}]{h2, }
 \item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+xy}
 \end{DoxyParamCaption}
-)}\label{namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4}
+)}\label{namespacemirana_ae9ee4058ea2b6238b6b745e4468f6a8e}
 
 
 Comopute the mixed second order derivative using central difference. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em phi} & N-\/by-\/\+N matrix. \\
+{\em phi} & N1-\/by-\/\+N2 matrix. \\
 \hline
-{\em h} & real number, step size. \\
+{\em h1} & real number, step size 1. \\
 \hline
-{\em phi\+\_\+xy} & real N-\/by-\/\+N matrix, only points ranged in \mbox{[}2\+:(N-\/1)\mbox{]}$^\wedge$2 are updated. \\
+{\em h2} & real number, step size 2. \\
+\hline
+{\em phi\+\_\+xy} & real N1-\/by-\/\+N2 matrix, only points ranged in \mbox{[}2\+:(N1-\/1)\mbox{]}X\mbox{[}2\+:(N2-\/1)\mbox{]} are updated. \\
 \hline
 \end{DoxyParams}
 
@@ -157,7 +170,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=312pt]{namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_cgraph}
+\includegraphics[width=312pt]{namespacemirana_ae9ee4058ea2b6238b6b745e4468f6a8e_cgraph}
 \end{center}
 \end{figure}
 
@@ -168,7 +181,97 @@ Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=248pt]{namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4_icgraph}
+\includegraphics[width=248pt]{namespacemirana_ae9ee4058ea2b6238b6b745e4468f6a8e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacemirana_acc84c99770972f6328e89ac04ac67153}{}\index{mirana@{mirana}!d1h1@{d1h1}}
+\index{d1h1@{d1h1}!mirana@{mirana}}
+\subsubsection[{d1h1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::d1h1 (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
+\item[{double precision, intent(in)}]{h, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+1h}
+\end{DoxyParamCaption}
+)}\label{namespacemirana_acc84c99770972f6328e89ac04ac67153}
+
+
+Compute the derivative along the 1st direction at the 1st kind of half points using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & real N1-\/by-\/\+N2 matrix. \\
+\hline
+{\em h} & real number, step size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+phi\+\_\+1h, real N1-\/by-\/\+N2 matrix, the (i,j) element stores the derivative at (i+1/2,j), only \mbox{[}1\+:N1-\/1\mbox{]}X\mbox{[}1\+:N2\mbox{]} part is used. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{namespacemirana_acc84c99770972f6328e89ac04ac67153_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{namespacemirana_acc84c99770972f6328e89ac04ac67153_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacemirana_a9d6168761271912ebfea872e9f322cdc}{}\index{mirana@{mirana}!d1h2@{d1h2}}
+\index{d1h2@{d1h2}!mirana@{mirana}}
+\subsubsection[{d1h2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::d1h2 (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
+\item[{double precision, intent(in)}]{h, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+1h}
+\end{DoxyParamCaption}
+)}\label{namespacemirana_a9d6168761271912ebfea872e9f322cdc}
+
+
+Compute the derivative along the 1st direction at the 2nd kind of half points using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & real N1-\/by-\/\+N2 matrix. \\
+\hline
+{\em h} & real number, step size (h1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+phi\+\_\+1h, real N1-\/by-\/\+N2 matrix, the (i,j) element stores the derivative at (i,j+1/2), only \mbox{[}2\+:N1-\/1\mbox{]}X\mbox{[}1\+:N2-\/1\mbox{]} part is used. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacemirana_a9d6168761271912ebfea872e9f322cdc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{namespacemirana_a9d6168761271912ebfea872e9f322cdc_icgraph}
 \end{center}
 \end{figure}
 
@@ -188,13 +291,13 @@ Differentiate with respect to the second dimension using central difference.
 
 
 \begin{DoxyParams}{Parameters}
-{\em phi} & real N-\/by-\/\+N matrix \\
+{\em phi} & real N1-\/by-\/\+N2 matrix \\
 \hline
 {\em h} & real number, step size. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-phi\+\_\+y real N-\/by-\/\+N matrix, only points ranged in \mbox{[}1\+:N\mbox{]}X\mbox{[}2\+:(N-\/1)\mbox{]} are updated. 
+phi\+\_\+y real N1-\/by-\/\+N2 matrix, only points ranged in \mbox{[}1\+:N1\mbox{]}X\mbox{[}2\+:(N2-\/1)\mbox{]} are updated. 
 \end{DoxyReturn}
 
 
@@ -213,7 +316,7 @@ Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=249pt]{namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph}
+\includegraphics[width=350pt]{namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph}
 \end{center}
 \end{figure}
 
@@ -233,11 +336,11 @@ Compute the second order derivative along the second dimension using central dif
 
 
 \begin{DoxyParams}{Parameters}
-{\em phi} & N-\/by-\/\+N real matrix. \\
+{\em phi} & N1-\/by-\/\+N2 real matrix. \\
 \hline
 {\em h} & real number, step size. \\
 \hline
-{\em phi\+\_\+yy} & real N-\/by-\/\+N matrix, only points ranged in \mbox{[}1\+:N\mbox{]}X\mbox{[}2\+:(N-\/1)\mbox{]} are updated. \\
+{\em phi\+\_\+yy} & real N1-\/by-\/\+N2 matrix, only points ranged in \mbox{[}1\+:N1\mbox{]}X\mbox{[}2\+:(N2-\/1)\mbox{]} are updated. \\
 \hline
 \end{DoxyParams}
 
@@ -262,35 +365,36 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{namespacemirana_ab052150258d81ff9a91ca5b86f0359b3}{}\index{mirana@{mirana}!dlp@{dlp}}
-\index{dlp@{dlp}!mirana@{mirana}}
-\subsubsection[{dlp}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::dlp (
+\hypertarget{namespacemirana_a9341f957abd27c5132c557ae873055bd}{}\index{mirana@{mirana}!d2h1@{d2h1}}
+\index{d2h1@{d2h1}!mirana@{mirana}}
+\subsubsection[{d2h1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::d2h1 (
 \begin{DoxyParamCaption}
 \item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
 \item[{double precision, intent(in)}]{h, }
-\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+lp}
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+2h}
 \end{DoxyParamCaption}
-)}\label{namespacemirana_ab052150258d81ff9a91ca5b86f0359b3}
+)}\label{namespacemirana_a9341f957abd27c5132c557ae873055bd}
 
 
-Compute Laplacian using central difference. 
+Compute the derivative along the 2nd direction at the 1st kind of half points using central difference. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em phi} & N-\/by-\/\+N matrix. \\
+{\em phi} & real N1-\/by-\/\+N2 matrix. \\
 \hline
-{\em h} & real number, step size. \\
-\hline
-{\em phi\+\_\+lp} & real N-\/by-\/\+N matrix, only points ranged in \mbox{[}2\+:(N-\/1)\mbox{]}$^\wedge$2 are updated. \\
+{\em h} & real number, step size (h2). \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+phi\+\_\+2h, real N1-\/by-\/\+N2 matrix, the (i,j) element stores the derivative at (i+1/2,j), only \mbox{[}1\+:N1-\/1\mbox{]}X\mbox{[}2\+:N2-\/1\mbox{]} part is used. 
+\end{DoxyReturn}
 
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_cgraph}
+\includegraphics[width=350pt]{namespacemirana_a9341f957abd27c5132c557ae873055bd_cgraph}
 \end{center}
 \end{figure}
 
@@ -301,7 +405,154 @@ Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=245pt]{namespacemirana_ab052150258d81ff9a91ca5b86f0359b3_icgraph}
+\includegraphics[width=265pt]{namespacemirana_a9341f957abd27c5132c557ae873055bd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacemirana_a4f47c93df57dd51d1414b2514fd1b339}{}\index{mirana@{mirana}!d2h2@{d2h2}}
+\index{d2h2@{d2h2}!mirana@{mirana}}
+\subsubsection[{d2h2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::d2h2 (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
+\item[{double precision, intent(in)}]{h, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+2h}
+\end{DoxyParamCaption}
+)}\label{namespacemirana_a4f47c93df57dd51d1414b2514fd1b339}
+
+
+Compute the derivative along the 2nd direction at the 2nd kind of half points using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & real N1-\/by-\/\+N2 matrix. \\
+\hline
+{\em h} & real number, step size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+phi\+\_\+2h, real N1-\/by-\/\+N2 matrix, the (i,j) element stores the derivative at (i,j+1/2), only \mbox{[}1\+:N1\mbox{]}X\mbox{[}1\+:N2-\/1\mbox{]} part is used. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{namespacemirana_a4f47c93df57dd51d1414b2514fd1b339_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{namespacemirana_a4f47c93df57dd51d1414b2514fd1b339_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacemirana_a353bce8a93046cd8fd25021634d6503e}{}\index{mirana@{mirana}!dlp@{dlp}}
+\index{dlp@{dlp}!mirana@{mirana}}
+\subsubsection[{dlp}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::dlp (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{phi, }
+\item[{double precision, intent(in)}]{h1, }
+\item[{double precision, intent(in)}]{h2, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{phi\+\_\+lp}
+\end{DoxyParamCaption}
+)}\label{namespacemirana_a353bce8a93046cd8fd25021634d6503e}
+
+
+Compute Laplacian using central difference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & N1-\/by-\/\+N2 matrix. \\
+\hline
+{\em h1} & real number, step size 1. \\
+\hline
+{\em h2} & real number, step size 2. \\
+\hline
+{\em phi\+\_\+lp} & real N1-\/by-\/\+N2 matrix, only points ranged in \mbox{[}2\+:(N1-\/1)\mbox{]}X\mbox{[}2\+:(N2-\/1)\mbox{]} are updated. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacemirana_a353bce8a93046cd8fd25021634d6503e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{namespacemirana_a353bce8a93046cd8fd25021634d6503e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacemirana_a7530ea2e7b2dfe85f3a088d24de59f1d}{}\index{mirana@{mirana}!greek@{greek}}
+\index{greek@{greek}!mirana@{mirana}}
+\subsubsection[{greek}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::greek (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{mx, }
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{my, }
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{xix, }
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{xiy, }
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{etx, }
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{ety, }
+\item[{double precision, intent(in)}]{h1, }
+\item[{double precision, intent(in)}]{h2, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{alp, }
+\item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{bet}
+\end{DoxyParamCaption}
+)}\label{namespacemirana_a7530ea2e7b2dfe85f3a088d24de59f1d}
+
+
+Compute the two coefficients for transformed laplacian $\alpha,\beta$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mx} & real N1-\/by-\/\+N2 matrix, mesh coordinates -\/ x. \\
+\hline
+{\em my} & real N1-\/by-\/\+N2 matrix, mesh coordinates -\/ y. \\
+\hline
+{\em xix} & real N1-\/by-\/\+N2 matrix, $\partial\xi/\partial x$. \\
+\hline
+{\em xiy} & real N1-\/by-\/\+N2 matrix, $\partial\xi/\partial y$. \\
+\hline
+{\em etx} & real N1-\/by-\/\+N2 matrix, $\partial\eta/\partial x$. \\
+\hline
+{\em ety} & real N1-\/by-\/\+N2 matrix, $\partial\eta/\partial y$. \\
+\hline
+{\em h1} & real number, step size in the first direction. \\
+\hline
+{\em h2} & real number, step size in the second direction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+alp real N1-\/by-\/\+N2 matrix, the $\alpha$, only \mbox{[}2\+:N1-\/1\mbox{]}X\mbox{[}2\+:N2-\/1\mbox{]} is used. 
+
+bet real N1-\/by-\/\+N2 matrix, the $\beta$, only \mbox{[}2\+:N1-\/1\mbox{]}X\mbox{[}2\+:N2-\/1\mbox{]} is used. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacemirana_a7530ea2e7b2dfe85f3a088d24de59f1d_cgraph}
 \end{center}
 \end{figure}
 
@@ -325,13 +576,13 @@ Be sure to call Mirana\+::d1 and Mirana\+::d2 on the mesh before calling this su
 \end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
-{\em x1,N-\/by-\/\+N} & real array, resulted from call d1(mx,hxi,x1). \\
+{\em x1,N1-\/by-\/\+N2} & real array, resulted from call d1(mx,hxi,x1). \\
 \hline
-{\em x2,N-\/by-\/\+N} & real array, resulted from call d2(mx,het,x2). \\
+{\em x2,N1-\/by-\/\+N2} & real array, resulted from call d2(mx,het,x2). \\
 \hline
-{\em y1,N-\/by-\/\+N} & real array, resulted from call d1(my,hxi,y1). \\
+{\em y1,N1-\/by-\/\+N2} & real array, resulted from call d1(my,hxi,y1). \\
 \hline
-{\em y2,N-\/by-\/\+N} & real array, resulted from call d2(my,het,y2). \\
+{\em y2,N1-\/by-\/\+N2} & real array, resulted from call d2(my,het,y2). \\
 \hline
 \end{DoxyParams}
 
@@ -355,7 +606,7 @@ Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=268pt]{namespacemirana_a65a514d206d0e8ae53253938d2aff553_icgraph}
+\includegraphics[width=350pt]{namespacemirana_a65a514d206d0e8ae53253938d2aff553_icgraph}
 \end{center}
 \end{figure}
 
@@ -389,14 +640,15 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{namespacemirana_af7398bd6141d1b739721cefb235bf4c4}{}\index{mirana@{mirana}!mirana\+\_\+memory@{mirana\+\_\+memory}}
+\hypertarget{namespacemirana_acccf612b21e3e65bd3a78131c48afe2b}{}\index{mirana@{mirana}!mirana\+\_\+memory@{mirana\+\_\+memory}}
 \index{mirana\+\_\+memory@{mirana\+\_\+memory}!mirana@{mirana}}
 \subsubsection[{mirana\+\_\+memory}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::mirana\+\_\+memory (
 \begin{DoxyParamCaption}
 \item[{double precision, dimension(\+:,\+:), intent(inout), allocatable}]{name, }
-\item[{integer, intent(in)}]{dim}
+\item[{integer, intent(in)}]{dim1, }
+\item[{integer, intent(in)}]{dim2}
 \end{DoxyParamCaption}
-)}\label{namespacemirana_af7398bd6141d1b739721cefb235bf4c4}
+)}\label{namespacemirana_acccf612b21e3e65bd3a78131c48afe2b}
 
 
 Allocate memory for new arrays. 
@@ -409,7 +661,7 @@ Allocate memory for new arrays.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-name dim-\/by-\/dim real array with memory allocated. 
+name dim1-\/by-\/dim2 real array with memory allocated. 
 \end{DoxyReturn}
 
 
@@ -417,7 +669,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{namespacemirana_af7398bd6141d1b739721cefb235bf4c4_cgraph}
+\includegraphics[width=350pt]{namespacemirana_acccf612b21e3e65bd3a78131c48afe2b_cgraph}
 \end{center}
 \end{figure}
 
@@ -443,9 +695,9 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 \begin{DoxyParams}{Parameters}
-{\em mx} & N-\/by-\/\+N real matrix, x-\/coordinate of mesh grid (fully determined). \\
+{\em mx} & N1-\/by-\/\+N2 real matrix, x-\/coordinate of mesh grid (fully determined). \\
 \hline
-{\em my} & N-\/by-\/\+N real matrix, y-\/coordinate of mesh grid (fully determined). \\
+{\em my} & N1-\/by-\/\+N2 real matrix, y-\/coordinate of mesh grid (fully determined). \\
 \hline
 {\em hxi} & real number, step size in computational domain along $\xi$ direction. \\
 \hline
@@ -453,15 +705,15 @@ Here is the call graph for this function\+:\nopagebreak
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-jcb real N-\/by-\/\+N matrix, the Jacobian $J$. 
+jcb real N1-\/by-\/\+N2 matrix, the Jacobian $J$. 
 
-xi\+\_\+x real N-\/by-\/\+N matrix, $\partial\xi/\partial x$. 
+xi\+\_\+x real N1-\/by-\/\+N2 matrix, $\partial\xi/\partial x$. 
 
-xi\+\_\+y real N-\/by-\/\+N matrix, $\partial\xi/\partial y$. 
+xi\+\_\+y real N1-\/by-\/\+N2 matrix, $\partial\xi/\partial y$. 
 
-et\+\_\+x real N-\/by-\/\+N matrix, $\partial\eta/\partial x$. 
+et\+\_\+x real N1-\/by-\/\+N2 matrix, $\partial\eta/\partial x$. 
 
-et\+\_\+y real N-\/by-\/\+N matrix, $\partial\eta/\partial y$. 
+et\+\_\+y real N1-\/by-\/\+N2 matrix, $\partial\eta/\partial y$. 
 \end{DoxyReturn}
 
 
@@ -470,6 +722,54 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacemirana_a53c223d4530275ef3fc6a5820f5b0990_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{namespacemirana_a53c223d4530275ef3fc6a5820f5b0990_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacemirana_a9cbee1a318e5e828590c9ccaa51c8472}{}\index{mirana@{mirana}!save\+\_\+mesh@{save\+\_\+mesh}}
+\index{save\+\_\+mesh@{save\+\_\+mesh}!mirana@{mirana}}
+\subsubsection[{save\+\_\+mesh}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mirana\+::save\+\_\+mesh (
+\begin{DoxyParamCaption}
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{mx, }
+\item[{double precision, dimension(\+:,\+:), intent(in), allocatable}]{my}
+\end{DoxyParamCaption}
+)}\label{namespacemirana_a9cbee1a318e5e828590c9ccaa51c8472}
+
+
+Write mesh data into .dat file for plot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mx} & real N1-\/by-\/\+N2 matrix, x-\/coodinates. \\
+\hline
+{\em my} & real N1-\/by-\/\+N2 matrix, x-\/coodinates. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+After generating mesh.\+dat, call the following command in Gnuplot\+:
+\begin{DoxyItemize}
+\item set view 0,0
+\item splot \char`\"{}mesh.\+dat\char`\"{} using 1\+:2\+:3 with lines 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{namespacemirana_a9cbee1a318e5e828590c9ccaa51c8472_icgraph}
 \end{center}
 \end{figure}
 

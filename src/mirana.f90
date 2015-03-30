@@ -13,7 +13,7 @@
 
 
 !> Provide the subroutines & functions for moving mesh computation.
-!! @todo Change to M-by-N matrices
+!! @todo finish greek()
 Module Mirana
   implicit none
 
@@ -48,7 +48,28 @@ contains
     end if
     return
   end subroutine mirana_memory
-    
+
+  !> Write mesh data into .dat file for plot
+  !! @param mx real N1-by-N2 matrix, x-coodinates.
+  !! @param my real N1-by-N2 matrix, x-coodinates.
+  !! @note After generating mesh.dat, call the following command in Gnuplot:
+  !! - set view 0,0
+  !! - splot "mesh.dat" using 1:2:3 with lines
+  subroutine save_mesh(mx,my)
+    implicit none
+    double precision, allocatable, dimension(:,:), intent(in) :: mx,my
+    integer :: n1,n2,i,j
+    n1 = size(mx,1)
+    n2 = size(mx,2)
+    open(unit=233,file="mesh.dat",status="replace")
+    do i = 1,n1
+       do j = 1,n2
+          write(233,*) mx(i,j), my(i,j), 0.0
+       end do
+       write(233,*) " "
+    end do
+  end subroutine save_mesh
+  
   !> Differentiate with respect to the first dimension using central difference.
   !! @param phi real N1-by-N2 matrix.
   !! @param h real number, step size.
@@ -86,6 +107,94 @@ contains
     phi_y(1:n1,2:(n2-1)) = 0.5 * ( phi(1:n1,3:n2) - phi(1:n1,1:(n2-2)) ) / h
     return
   end subroutine d2
+
+  !> Compute the derivative along the 1st direction at the 1st kind of half points using central difference.
+  !! @param phi real N1-by-N2 matrix.
+  !! @param h real number, step size.
+  !! @return phi_1h, real N1-by-N2 matrix, the (i,j) element stores the derivative at (i+1/2,j), only
+  !!                 [1:N1-1]X[1:N2] part is used.
+  subroutine d1h1(phi,h,phi_1h)
+    implicit none
+    integer :: n1,n2 !> dimension of arrays
+    double precision, intent(in) :: h
+    double precision, allocatable, dimension(:,:), intent(in) :: phi
+    double precision, allocatable, dimension(:,:), intent(inout) :: phi_1h
+    if (.not.allocated(phi) .or. .not.allocated(phi_1h)) then
+       call mirana_exception("Error in module Mirana.d1h: array not allocated!")
+    end if
+    n1 = size(phi,1)
+    n2 = size(phi,2)
+    phi_1h(1:(n1-1),1:n2) = ( phi(2:n1,1:n2) - phi(1:(n1-1),1:n2) ) / h
+    return
+  end subroutine d1h1
+
+  !> Compute the derivative along the 1st direction at the 2nd kind of half points using central difference.
+  !! @param phi real N1-by-N2 matrix.
+  !! @param h real number, step size (h1).
+  !! @return phi_1h, real N1-by-N2 matrix, the (i,j) element stores the derivative at (i,j+1/2), only
+  !!                 [2:N1-1]X[1:N2-1] part is used.
+  subroutine d1h2(phi,h,phi_1h)
+    implicit none
+    integer :: n1,n2 !> dimension of arrays
+    double precision, intent(in) :: h
+    double precision, allocatable, dimension(:,:), intent(in) :: phi
+    double precision, allocatable, dimension(:,:), intent(inout) :: phi_1h
+    double precision, allocatable, dimension(:,:) :: phi_x
+    if (.not.allocated(phi) .or. .not.allocated(phi_1h)) then
+       call mirana_exception("Error in module Mirana.d1h: array not allocated!")
+    end if
+    n1 = size(phi,1)
+    n2 = size(phi,2)
+    allocate( phi_x(n1,n2) )
+    call d1(phi,h,phi_x)
+    phi_1h(2:(n1-1),1:(n2-1)) = 0.5 * ( phi_x(2:(n1-1),1:(n2-1)) + phi_x(2:(n1-1),2:n2) )
+    deallocate( phi_x )
+    return
+  end subroutine d1h2
+
+  !> Compute the derivative along the 2nd direction at the 1st kind of half points using central difference.
+  !! @param phi real N1-by-N2 matrix.
+  !! @param h real number, step size (h2).
+  !! @return phi_2h, real N1-by-N2 matrix, the (i,j) element stores the derivative at (i+1/2,j), only
+  !!                 [1:N1-1]X[2:N2-1] part is used.
+  subroutine d2h1(phi,h,phi_2h)
+    implicit none
+    integer :: n1,n2 !> dimension of arrays
+    double precision, intent(in) :: h
+    double precision, allocatable, dimension(:,:), intent(in) :: phi
+    double precision, allocatable, dimension(:,:), intent(inout) :: phi_2h
+    double precision, allocatable, dimension(:,:) :: phi_y
+    if (.not.allocated(phi) .or. .not.allocated(phi_2h)) then
+       call mirana_exception("Error in module Mirana.d1h: array not allocated!")
+    end if
+    n1 = size(phi,1)
+    n2 = size(phi,2)
+    allocate( phi_y(n1,n2) )
+    call d2(phi,h,phi_y)
+    phi_2h(1:(n1-1),2:(n2-1)) = 0.5 * ( phi_y(1:(n1-1),2:(n2-1)) + phi_y(2:n1,2:(n2-1)) )
+    deallocate( phi_y )
+    return
+  end subroutine d2h1
+
+  !> Compute the derivative along the 2nd direction at the 2nd kind of half points using central difference.
+  !! @param phi real N1-by-N2 matrix.
+  !! @param h real number, step size.
+  !! @return phi_2h, real N1-by-N2 matrix, the (i,j) element stores the derivative at (i,j+1/2), only
+  !!                 [1:N1]X[1:N2-1] part is used.
+  subroutine d2h2(phi,h,phi_2h)
+    implicit none
+    integer :: n1,n2 !> dimension of arrays
+    double precision, intent(in) :: h
+    double precision, allocatable, dimension(:,:), intent(in) :: phi
+    double precision, allocatable, dimension(:,:), intent(inout) :: phi_2h
+    if (.not.allocated(phi) .or. .not.allocated(phi_2h)) then
+       call mirana_exception("Error in module Mirana.d2h: array not allocated!")
+    end if
+    n1 = size(phi,1)
+    n2 = size(phi,2)
+    phi_2h(1:n1,1:(n2-1)) = ( phi(1:n1,2:n2) - phi(1:n1,1:(n2-1)) ) / h
+    return
+  end subroutine d2h2  
 
   !> Compute the second order derivative along the first dimension using central difference.
   !! @param phi N1-by-N2 matrix.
@@ -210,6 +319,85 @@ contains
     deallocate( y1 ); deallocate( y2 )
     return
   end subroutine nmd
+
+  !> Compute the two coefficients for transformed laplacian \f$\alpha,\beta\f$.
+  !! @param mx real N1-by-N2 matrix, mesh coordinates - x.
+  !! @param my real N1-by-N2 matrix, mesh coordinates - y.
+  !! @param xix real N1-by-N2 matrix, \f$\partial\xi/\partial x\f$.
+  !! @param xiy real N1-by-N2 matrix, \f$\partial\xi/\partial y\f$.
+  !! @param etx real N1-by-N2 matrix, \f$\partial\eta/\partial x\f$.
+  !! @param ety real N1-by-N2 matrix, \f$\partial\eta/\partial y\f$.
+  !! @param h1 real number, step size in the first direction.
+  !! @param h2 real number, step size in the second direction.
+  !! @return alp real N1-by-N2 matrix, the \f$\alpha\f$, only [2:N1-1]X[2:N2-1] is used.
+  !! @return bet real N1-by-N2 matrix, the \f$\beta\f$, only [2:N1-1]X[2:N2-1] is used.
+  subroutine greek(mx,my,xix,xiy,etx,ety,h1,h2,alp,bet)
+    implicit none
+    integer :: n1,n2 !> dimension of arrays
+    integer, allocatable, dimension(:) :: kk,ll
+    double precision, intent(in) :: h1,h2
+    integer :: i
+    double precision, allocatable, dimension(:,:), intent(in) :: mx,my,xix,xiy,etx,ety
+    double precision, allocatable, dimension(:,:), intent(inout) :: alp,bet
+    double precision, allocatable, dimension(:,:) :: jh1,jh2,&
+         x1h1,x1h2,x2h1,x2h2,y1h1,y1h2,y2h1,y2h2,&
+         xixh1,xixh2,xiyh1,xiyh2,etxh1,etxh2,etyh1,etyh2
+    n1 = size(mx,1)
+    n2 = size(mx,2)
+    allocate( kk(n1-2) )
+    allocate( ll(n2-2) )
+    kk = (/ (i, i=2,(n1-1), 1) /)
+    ll = (/ (i, i=2,(n2-1), 1) /)
+    if (.not.allocated(mx) .or. .not.allocated(my) .or. .not.allocated(xix) .or. &
+         .not.allocated(xiy), .or. .not.allocated(etx) .or. .not.allocated(ety)) then
+       call mirana_exception("Rooro in module Mirana.greek: array not allocated!")
+    end if
+    allocate( jh1(n1,n2) )
+    allocate( jh2(n1,n2) )
+    allocate( x1h1(n1,n2) )
+    allocate( x1h2(n1,n2) )
+    allocate( x2h1(n1,n2) )
+    allocate( x2h2(n1,n2) )
+    allocate( y1h1(n1,n2) )
+    allocate( y1h2(n1,n2) )
+    allocate( y2h1(n1,n2) )
+    allocate( y2h2(n1,n2) )
+    !=====================================
+    call d1h1(mx,h1,x1h1)
+    call d1h2(mx,h1,x1h2)
+    call d2h1(mx,h2,x2h1)
+    call d2h2(mx,h2,x2h2)
+    call d1h1(my,h1,y1h1)
+    call d1h2(my,h1,y1h2)
+    call d2h1(my,h2,y2h1)
+    call d2h2(my,h2,y2h2)
+    !=====================================
+    allocate( jh1(n1,n2) )
+    allocate( jh2(n1,n2) )
+    jh1 = x1h1 * y2h1 - y1h1 * x2h1
+    jh2 = x1h2 * y2h2 - y1h2 * x2h2
+    !=====================================
+    allocate( xixh1(n1,n2) )
+    allocate( xiyh1(n1,n2) )
+    allocate( xixh2(n1,n2) )
+    allocate( xiyh2(n1,n2) )
+    allocate( etxh1(n1,n2) )
+    allocate( etyh1(n1,n2) )
+    allocate( etxh2(n1,n2) )
+    allocate( etyh2(n1,n2) )
+    xixh1(1:n1-1,ll) = + y2h1(1:n1-1,ll) / jh1(1:n1-1,ll) ! the index must be restriced to avoid division by zero!
+    xiyh1(1:n1-1,ll) = - x2h1(1:n1-1,ll) / jh1(1:n1-1,ll)
+    xixh2(kk,1:n2-1) = + y2h2(kk,1:n2-1) / jh2(kk,1:n2-1) 
+    xiyh2(kk,1:n2-1) = - x2h2(kk,1:n2-1) / jh2(kk,1:n2-1) 
+    etxh1(1:n1-1,ll) = - y1h1(1:n1-1,ll) / jh1(1:n1-1,ll)
+    etyh1(1:n1-1,ll) = + x1h1(1:n1-1,ll) / jh1(1:n1-1,ll)
+    etxh2(kk,1:n2-1) = - y1h2(kk,1:n2-1) / jh2(kk,1:n2-1) 
+    etyh2(kk,1:n2-1) = + x1h2(kk,1:n2-1) / jh2(kk,1:n2-1)
+    !=====================================
+    
+    
+  end subroutine greek
+  
 
   !> (Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh.
   !! @note Be sure to call Mirana::d1 and Mirana::d2 on the mesh before calling this subroutine!

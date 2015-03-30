@@ -1,12 +1,18 @@
 <map id="mirana::mirana_exception" name="mirana::mirana_exception">
-<area shape="rect" id="node2" href="$namespacemirana.html#af7398bd6141d1b739721cefb235bf4c4" title="Allocate memory for new arrays. " alt="" coords="224,5,387,32"/>
-<area shape="rect" id="node3" href="$namespacemirana.html#a4009036e8b04ac992641e36d34ab0ed4" title="Differentiate with respect to the first dimension using central difference. " alt="" coords="264,107,347,133"/>
-<area shape="rect" id="node5" href="$namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="435,201,529,228"/>
-<area shape="rect" id="node6" href="$namespacemirana.html#a21348ffe170eafc6fc2a009256b1b6e3" title="Differentiate with respect to the second dimension using central difference. " alt="" coords="264,259,347,285"/>
-<area shape="rect" id="node7" href="$namespacemirana.html#ab9b1e7b5e38c6a020e05196b452e6d02" title="Compute the second order derivative along the first dimension using central difference. " alt="" coords="260,411,351,437"/>
-<area shape="rect" id="node8" href="$namespacemirana.html#ab052150258d81ff9a91ca5b86f0359b3" title="Compute Laplacian using central difference. " alt="" coords="439,360,525,387"/>
-<area shape="rect" id="node9" href="$namespacemirana.html#ad3ac07295401fa4e0da8c4fa3bcc2cd4" title="Comopute the mixed second order derivative using central difference. " alt="" coords="437,63,527,89"/>
-<area shape="rect" id="node10" href="$namespacemirana.html#a9161b0947ddd188ac99d9246a1d81aed" title="Compute the second order derivative along the second dimension using central difference. " alt="" coords="260,309,351,336"/>
-<area shape="rect" id="node11" href="$namespacemirana.html#a65a514d206d0e8ae53253938d2aff553" title="(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh..." alt="" coords="251,208,359,235"/>
-<area shape="rect" id="node4" href="$example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="577,284,663,311"/>
+<area shape="rect" id="node2" href="$namespacemirana.html#acccf612b21e3e65bd3a78131c48afe2b" title="Allocate memory for new arrays. " alt="" coords="224,5,387,32"/>
+<area shape="rect" id="node3" href="$namespacemirana.html#a4009036e8b04ac992641e36d34ab0ed4" title="Differentiate with respect to the first dimension using central difference. " alt="" coords="264,360,347,387"/>
+<area shape="rect" id="node5" href="$namespacemirana.html#a9d6168761271912ebfea872e9f322cdc" title="Compute the derivative along the 1st direction at the 2nd kind of half points using central differenc..." alt="" coords="435,411,532,437"/>
+<area shape="rect" id="node6" href="$namespacemirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="580,259,681,285"/>
+<area shape="rect" id="node7" href="$namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="436,208,531,235"/>
+<area shape="rect" id="node9" href="$namespacemirana.html#a21348ffe170eafc6fc2a009256b1b6e3" title="Differentiate with respect to the second dimension using central difference. " alt="" coords="264,309,347,336"/>
+<area shape="rect" id="node10" href="$namespacemirana.html#a9341f957abd27c5132c557ae873055bd" title="Compute the derivative along the 2nd direction at the 1st kind of half points using central differenc..." alt="" coords="435,259,532,285"/>
+<area shape="rect" id="node11" href="$namespacemirana.html#acc84c99770972f6328e89ac04ac67153" title="Compute the derivative along the 1st direction at the 1st kind of half points using central differenc..." alt="" coords="435,461,532,488"/>
+<area shape="rect" id="node12" href="$namespacemirana.html#a4f47c93df57dd51d1414b2514fd1b339" title="Compute the derivative along the 2nd direction at the 2nd kind of half points using central differenc..." alt="" coords="435,157,532,184"/>
+<area shape="rect" id="node13" href="$namespacemirana.html#ab9b1e7b5e38c6a020e05196b452e6d02" title="Compute the second order derivative along the first dimension using central difference. " alt="" coords="260,664,351,691"/>
+<area shape="rect" id="node14" href="$namespacemirana.html#a353bce8a93046cd8fd25021634d6503e" title="Compute Laplacian using central difference. " alt="" coords="440,613,527,640"/>
+<area shape="rect" id="node15" href="$namespacemirana.html#ae9ee4058ea2b6238b6b745e4468f6a8e" title="Comopute the mixed second order derivative using central difference. " alt="" coords="438,512,529,539"/>
+<area shape="rect" id="node16" href="$namespacemirana.html#a9161b0947ddd188ac99d9246a1d81aed" title="Compute the second order derivative along the second dimension using central difference. " alt="" coords="260,563,351,589"/>
+<area shape="rect" id="node17" href="$namespacemirana.html#a65a514d206d0e8ae53253938d2aff553" title="(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh..." alt="" coords="251,208,359,235"/>
+<area shape="rect" id="node4" href="$example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="588,436,673,463"/>
+<area shape="rect" id="node8" href="$example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="588,208,673,235"/>
 </map>

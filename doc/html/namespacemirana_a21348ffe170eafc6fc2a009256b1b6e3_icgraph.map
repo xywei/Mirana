@@ -1,4 +1,7 @@
 <map id="mirana::d2" name="mirana::d2">
-<area shape="rect" id="node2" href="$example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="141,5,226,32"/>
-<area shape="rect" id="node3" href="$namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="136,56,231,83"/>
+<area shape="rect" id="node2" href="$example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="289,5,375,32"/>
+<area shape="rect" id="node3" href="$namespacemirana.html#a9341f957abd27c5132c557ae873055bd" title="Compute the derivative along the 2nd direction at the 1st kind of half points using central differenc..." alt="" coords="136,56,233,83"/>
+<area shape="rect" id="node5" href="$namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="137,107,232,133"/>
+<area shape="rect" id="node4" href="$namespacemirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="281,56,383,83"/>
+<area shape="rect" id="node6" href="$example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="289,107,375,133"/>
 </map>

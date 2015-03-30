@@ -2,8 +2,8 @@
 Program example_2
   use Mirana
   implicit none
-  integer, parameter :: n1 = 1000, n2 = 500
-  double precision, parameter :: L = 2.0
+  integer, parameter :: n1 = 30, n2 = 50
+  double precision, parameter :: L = 1.9 !> A square domain
   double precision :: h1,h2,ej,exi1,exi2,eet1,eet2,x,y
   integer :: i,j
   double precision, dimension(:,:),allocatable :: mesh1,mesh2,jacob,xi1,xi2,et1,et2
@@ -19,10 +19,12 @@ Program example_2
   h2 = L / n2
   do i = 1,n1
      do j = 1,n2
-        x = h1 * i
-        y = h2 * j
-        mesh1(i,j) = (x-L/2.0)**3 + 1
-        mesh2(i,j) = (y-L/2.0)**5 + 1
+        x = h1 * i - L/2
+        y = h2 * j - L/2
+        !> - The x-mesh \f$\xi=tanh(5x)\f$.
+        !> - The y-mesh \f$\eta=tanh(y)\f$.
+        mesh1(i,j) = 5 * atanh(x)
+        mesh2(i,j) = atanh(y)
      end do
   end do
 
@@ -33,11 +35,14 @@ Program example_2
   exi2 = 0
   eet1 = 0
   eet2 = 0
-  do i = 1,n1
-     do j = 1,n2
-        x = h1 * i
-        y = h2 * j
-        exi1 = exi1 + 0.0
+  do i = 2,n1-1
+     do j = 2,n2-1
+        x = h1 * i - L/2
+        y = h2 * j - L/2
+        exi1 = exi1 + abs( xi1(i,j) -  0.2 * (cosh(mesh1(i,j)/5.0)**(-2)) )
+        exi2 = exi2 + abs( xi2(i,j) )
+        eet1 = eet1 + abs( et1(i,j) )
+        eet2 = eet2 + abs( et2(i,j) - cosh(mesh2(i,j))**(-2) )
      end do
   end do
 
@@ -49,6 +54,8 @@ Program example_2
   write(*,*) "eta_x: ", eet1/n1/n2
   write(*,*) "eta_y: ", eet2/n1/n2
   write(*,*) "==========================="
+
+  call save_mesh(mesh1,mesh2)
 
   deallocate( mesh1 )
   deallocate( mesh2 )

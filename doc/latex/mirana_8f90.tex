@@ -10,21 +10,33 @@ module \hyperlink{namespacemirana}{mirana}
 \item 
 subroutine \hyperlink{namespacemirana_ab002a22665f70b4c65bdcf70ac96d768}{mirana\+::mirana\+\_\+exception} (message)
 \begin{DoxyCompactList}\small\item\em Handling exceptions. \end{DoxyCompactList}\item 
-subroutine \hyperlink{namespacemirana_af7398bd6141d1b739721cefb235bf4c4}{mirana\+::mirana\+\_\+memory} (name, dim)
+subroutine \hyperlink{namespacemirana_acccf612b21e3e65bd3a78131c48afe2b}{mirana\+::mirana\+\_\+memory} (name, dim1, dim2)
 \begin{DoxyCompactList}\small\item\em Allocate memory for new arrays. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a9cbee1a318e5e828590c9ccaa51c8472}{mirana\+::save\+\_\+mesh} (mx, my)
+\begin{DoxyCompactList}\small\item\em Write mesh data into .dat file for plot. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a4009036e8b04ac992641e36d34ab0ed4}{mirana\+::d1} (phi, h, phi\+\_\+x)
 \begin{DoxyCompactList}\small\item\em Differentiate with respect to the first dimension using central difference. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a21348ffe170eafc6fc2a009256b1b6e3}{mirana\+::d2} (phi, h, phi\+\_\+y)
 \begin{DoxyCompactList}\small\item\em Differentiate with respect to the second dimension using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_acc84c99770972f6328e89ac04ac67153}{mirana\+::d1h1} (phi, h, phi\+\_\+1h)
+\begin{DoxyCompactList}\small\item\em Compute the derivative along the 1st direction at the 1st kind of half points using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a9d6168761271912ebfea872e9f322cdc}{mirana\+::d1h2} (phi, h, phi\+\_\+1h)
+\begin{DoxyCompactList}\small\item\em Compute the derivative along the 1st direction at the 2nd kind of half points using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a9341f957abd27c5132c557ae873055bd}{mirana\+::d2h1} (phi, h, phi\+\_\+2h)
+\begin{DoxyCompactList}\small\item\em Compute the derivative along the 2nd direction at the 1st kind of half points using central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a4f47c93df57dd51d1414b2514fd1b339}{mirana\+::d2h2} (phi, h, phi\+\_\+2h)
+\begin{DoxyCompactList}\small\item\em Compute the derivative along the 2nd direction at the 2nd kind of half points using central difference. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_ab9b1e7b5e38c6a020e05196b452e6d02}{mirana\+::d11} (phi, h, phi\+\_\+xx)
 \begin{DoxyCompactList}\small\item\em Compute the second order derivative along the first dimension using central difference. \end{DoxyCompactList}\item 
-subroutine \hyperlink{namespacemirana_ad3ac07295401fa4e0da8c4fa3bcc2cd4}{mirana\+::d12} (phi, h, phi\+\_\+xy)
+subroutine \hyperlink{namespacemirana_ae9ee4058ea2b6238b6b745e4468f6a8e}{mirana\+::d12} (phi, h1, h2, phi\+\_\+xy)
 \begin{DoxyCompactList}\small\item\em Comopute the mixed second order derivative using central difference. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a9161b0947ddd188ac99d9246a1d81aed}{mirana\+::d22} (phi, h, phi\+\_\+yy)
 \begin{DoxyCompactList}\small\item\em Compute the second order derivative along the second dimension using central difference. \end{DoxyCompactList}\item 
-subroutine \hyperlink{namespacemirana_ab052150258d81ff9a91ca5b86f0359b3}{mirana\+::dlp} (phi, h, phi\+\_\+lp)
+subroutine \hyperlink{namespacemirana_a353bce8a93046cd8fd25021634d6503e}{mirana\+::dlp} (phi, h1, h2, phi\+\_\+lp)
 \begin{DoxyCompactList}\small\item\em Compute Laplacian using central difference. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a53c223d4530275ef3fc6a5820f5b0990}{mirana\+::nmd} (mx, my, hxi, het, jcb, xi\+\_\+x, xi\+\_\+y, et\+\_\+x, et\+\_\+y)
 \begin{DoxyCompactList}\small\item\em (Non-\/conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-\/conservative form central difference. \end{DoxyCompactList}\item 
+subroutine \hyperlink{namespacemirana_a7530ea2e7b2dfe85f3a088d24de59f1d}{mirana\+::greek} (mx, my, xix, xiy, etx, ety, h1, h2, alp, bet)
+\begin{DoxyCompactList}\small\item\em Compute the two coefficients for transformed laplacian $\alpha,\beta$. \end{DoxyCompactList}\item 
 subroutine \hyperlink{namespacemirana_a65a514d206d0e8ae53253938d2aff553}{mirana\+::mbc\+\_\+d} (x1, x2, y1, y2)
 \begin{DoxyCompactList}\small\item\em (Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
