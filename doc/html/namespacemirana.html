@@ -143,6 +143,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a53c223d4530275ef3fc6a5820f5b0990"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a53c223d4530275ef3fc6a5820f5b0990">nmd</a> (mx, my, hxi, het, jcb, xi_x, xi_y, et_x, et_y)</td></tr>
 <tr class="memdesc:a53c223d4530275ef3fc6a5820f5b0990"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Non-conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-conservative form central difference.  <a href="#a53c223d4530275ef3fc6a5820f5b0990">More...</a><br /></td></tr>
 <tr class="separator:a53c223d4530275ef3fc6a5820f5b0990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71faa480fd08e57cac1a862ab527971b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a71faa480fd08e57cac1a862ab527971b">nmd1</a> (phi, h1, h2, phi_x)</td></tr>
+<tr class="memdesc:a71faa480fd08e57cac1a862ab527971b"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Non-conservative Mesh D1) Compute \(\partial\phi/\partial x\) using mesh variables  <a href="#a71faa480fd08e57cac1a862ab527971b">More...</a><br /></td></tr>
+<tr class="separator:a71faa480fd08e57cac1a862ab527971b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7530ea2e7b2dfe85f3a088d24de59f1d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d">greek</a> (mx, my, xix, xiy, etx, ety, h1, h2, alp, bet)</td></tr>
 <tr class="memdesc:a7530ea2e7b2dfe85f3a088d24de59f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the two coefficients for transformed laplacian \(\alpha,\beta\).  <a href="#a7530ea2e7b2dfe85f3a088d24de59f1d">More...</a><br /></td></tr>
 <tr class="separator:a7530ea2e7b2dfe85f3a088d24de59f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,11 +155,16 @@ Functions/Subroutines</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provide the subroutines &amp; functions for moving mesh computation. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>finish <a class="el" href="namespacemirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . ">greek()</a> </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">test <a class="el" href="namespacemirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . ">greek()</a> </p>
+<p class="enddd">finish <a class="el" href="namespacemirana.html#a71faa480fd08e57cac1a862ab527971b" title="(Non-conservative Mesh D1) Compute  using mesh variables ">nmd1()</a> </p>
+</dd></dl>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a class="anchor" id="a4009036e8b04ac992641e36d34ab0ed4"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d1 </td>
@@ -182,6 +190,11 @@ Functions/Subroutines</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Differentiate with respect to the first dimension using central difference. </p>
@@ -223,6 +236,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="ab9b1e7b5e38c6a020e05196b452e6d02"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d11 </td>
@@ -248,6 +264,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Compute the second order derivative along the first dimension using central difference. </p>
@@ -286,6 +307,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="ae9ee4058ea2b6238b6b745e4468f6a8e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d12 </td>
@@ -317,6 +341,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Comopute the mixed second order derivative using central difference. </p>
@@ -355,6 +384,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="acc84c99770972f6328e89ac04ac67153"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d1h1 </td>
@@ -380,6 +412,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Compute the derivative along the 1st direction at the 1st kind of half points using central difference. </p>
@@ -418,6 +455,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a9d6168761271912ebfea872e9f322cdc"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d1h2 </td>
@@ -443,6 +483,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Compute the derivative along the 1st direction at the 2nd kind of half points using central difference. </p>
@@ -482,6 +527,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a21348ffe170eafc6fc2a009256b1b6e3"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d2 </td>
@@ -507,6 +555,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Differentiate with respect to the second dimension using central difference. </p>
@@ -548,6 +601,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a9161b0947ddd188ac99d9246a1d81aed"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d22 </td>
@@ -573,6 +629,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Compute the second order derivative along the second dimension using central difference. </p>
@@ -611,6 +672,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a9341f957abd27c5132c557ae873055bd"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d2h1 </td>
@@ -636,6 +700,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Compute the derivative along the 2nd direction at the 1st kind of half points using central difference. </p>
@@ -675,6 +744,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a4f47c93df57dd51d1414b2514fd1b339"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d2h2 </td>
@@ -700,6 +772,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Compute the derivative along the 2nd direction at the 2nd kind of half points using central difference. </p>
@@ -738,6 +815,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a353bce8a93046cd8fd25021634d6503e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::dlp </td>
@@ -769,6 +849,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Compute Laplacian using central difference. </p>
@@ -809,6 +894,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a7530ea2e7b2dfe85f3a088d24de59f1d"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::greek </td>
@@ -876,6 +964,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Compute the two coefficients for transformed laplacian \(\alpha,\beta\). </p>
@@ -917,6 +1010,9 @@ Here is the call graph for this function:</div>
 <a class="anchor" id="a65a514d206d0e8ae53253938d2aff553"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::mbc_d </td>
@@ -948,6 +1044,11 @@ Here is the call graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh. </p>
@@ -992,6 +1093,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="ab002a22665f70b4c65bdcf70ac96d768"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::mirana_exception </td>
@@ -1001,6 +1105,11 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Handling exceptions. </p>
@@ -1042,6 +1151,9 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="acccf612b21e3e65bd3a78131c48afe2b"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::mirana_memory </td>
@@ -1067,6 +1179,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Allocate memory for new arrays. </p>
@@ -1094,6 +1211,9 @@ Here is the call graph for this function:</div>
 <a class="anchor" id="a53c223d4530275ef3fc6a5820f5b0990"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::nmd </td>
@@ -1155,6 +1275,11 @@ Here is the call graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>(Non-conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-conservative form central difference. </p>
@@ -1202,9 +1327,69 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a71faa480fd08e57cac1a862ab527971b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mirana::nmd1 </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>h1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>h2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>phi_x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>(Non-conservative Mesh D1) Compute \(\partial\phi/\partial x\) using mesh variables </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phi</td><td>N1-by-N2 real matrix. </td></tr>
+    <tr><td class="paramname">h1</td><td>real number, step size in \(\xi\) axis. </td></tr>
+    <tr><td class="paramname">h2</td><td>real number, step size in \(\eta\) axis. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>phi_x N1-by-N2 real matrix, only [2:N1-1]X[2:N2-1] are used. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a9cbee1a318e5e828590c9ccaa51c8472"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::save_mesh </td>
@@ -1224,6 +1409,11 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Write mesh data into .dat file for plot. </p>

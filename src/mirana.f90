@@ -13,11 +13,14 @@
 
 
 !> Provide the subroutines & functions for moving mesh computation.
-!! @todo finish greek()
+!! @todo test greek()
+!! @todo finish nmd1()
 Module Mirana
   implicit none
 
-  public
+  public  ! public members go here.
+
+  private ! private members go here.
     
 contains
   !> Handling exceptions.
@@ -320,6 +323,18 @@ contains
     return
   end subroutine nmd
 
+  !> (Non-conservative Mesh D1) Compute \f$\partial\phi/\partial x\f$ using mesh variables
+  !! @param phi N1-by-N2 real matrix.
+  !! @param h1 real number, step size in \f$\xi\f$ axis.
+  !! @param h2 real number, step size in \f$\eta\f$ axis.
+  !! @return phi_x N1-by-N2 real matrix, only [2:N1-1]X[2:N2-1] are used.
+  subroutine nmd1(phi,h1,h2,phi_x)
+    implicit none
+    integer :: n1,n2
+    double precision, intent(in) :: h1,h2
+    
+  end subroutine nmd1
+  
   !> Compute the two coefficients for transformed laplacian \f$\alpha,\beta\f$.
   !! @param mx real N1-by-N2 matrix, mesh coordinates - x.
   !! @param my real N1-by-N2 matrix, mesh coordinates - y.
@@ -349,7 +364,8 @@ contains
     kk = (/ (i, i=2,(n1-1), 1) /)
     ll = (/ (i, i=2,(n2-1), 1) /)
     if (.not.allocated(mx) .or. .not.allocated(my) .or. .not.allocated(xix) .or. &
-         .not.allocated(xiy), .or. .not.allocated(etx) .or. .not.allocated(ety)) then
+         .not.allocated(xiy) .or. .not.allocated(etx) .or. .not.allocated(ety) .or. &
+         .not.allocated(alp) .or. .not.allocated(bet) ) then
        call mirana_exception("Rooro in module Mirana.greek: array not allocated!")
     end if
     allocate( jh1(n1,n2) )
@@ -372,8 +388,6 @@ contains
     call d2h1(my,h2,y2h1)
     call d2h2(my,h2,y2h2)
     !=====================================
-    allocate( jh1(n1,n2) )
-    allocate( jh2(n1,n2) )
     jh1 = x1h1 * y2h1 - y1h1 * x2h1
     jh2 = x1h2 * y2h2 - y1h2 * x2h2
     !=====================================
@@ -394,8 +408,30 @@ contains
     etxh2(kk,1:n2-1) = - y1h2(kk,1:n2-1) / jh2(kk,1:n2-1) 
     etyh2(kk,1:n2-1) = + x1h2(kk,1:n2-1) / jh2(kk,1:n2-1)
     !=====================================
-    
-    
+    alp(kk,ll) = xix(kk,ll)*( xixh1(kk,ll) - xixh1(kk-1,ll) ) / h1 + xiy(kk,ll)*( xiyh1(kk,ll) - xiyh1(kk-1,ll) ) / h1 &
+         + etx(kk,ll)*( xixh2(kk,ll) - xixh2(kk,ll-1) ) / h2 + ety(kk,ll)*( xiyh2(kk,ll) - xiyh2(kk,ll-1) ) / h2
+    bet(kk,ll) = xix(kk,ll)*( etxh1(kk,ll) - etxh1(kk-1,ll) ) / h1 + xiy(kk,ll)*( etyh1(kk,ll) - etyh1(kk-1,ll) ) / h1 &
+         + etx(kk,ll)*( etxh2(kk,ll) - etxh2(kk,ll-1) ) / h2 + ety(kk,ll)*( etyh2(kk,ll) - etyh2(kk,ll-1) ) / h2
+    !=====================================
+    deallocate( jh1 )
+    deallocate( jh2 )
+    deallocate( x1h1 )
+    deallocate( x1h2 )
+    deallocate( x2h1 )
+    deallocate( x2h2 )
+    deallocate( y1h1 )
+    deallocate( y1h2 )
+    deallocate( y2h1 )
+    deallocate( y2h2 )
+    deallocate( xixh1 )
+    deallocate( xixh2 )
+    deallocate( xiyh1 )
+    deallocate( xiyh2 )
+    deallocate( etxh1 )
+    deallocate( etxh2 )
+    deallocate( etyh1 )
+    deallocate( etyh2 )
+    return
   end subroutine greek
   
 
