@@ -1,0 +1,9 @@
+<map id="mirana::greek" name="mirana::greek">
+<area shape="rect" id="node2" href="$classmirana.html#ab002a22665f70b4c65bdcf70ac96d768" title="Handling exceptions. " alt="" coords="448,132,619,159"/>
+<area shape="rect" id="node3" href="$classmirana.html#acc84c99770972f6328e89ac04ac67153" title="Compute the derivative along the 1st direction at the 1st kind of half points using central differenc..." alt="" coords="302,31,399,58"/>
+<area shape="rect" id="node4" href="$classmirana.html#a9d6168761271912ebfea872e9f322cdc" title="Compute the derivative along the 1st direction at the 2nd kind of half points using central differenc..." alt="" coords="155,107,253,134"/>
+<area shape="rect" id="node6" href="$classmirana.html#a9341f957abd27c5132c557ae873055bd" title="Compute the derivative along the 2nd direction at the 1st kind of half points using central differenc..." alt="" coords="155,183,253,210"/>
+<area shape="rect" id="node8" href="$classmirana.html#a4f47c93df57dd51d1414b2514fd1b339" title="Compute the derivative along the 2nd direction at the 2nd kind of half points using central differenc..." alt="" coords="155,259,253,286"/>
+<area shape="rect" id="node5" href="$classmirana.html#a4009036e8b04ac992641e36d34ab0ed4" title="Differentiate with respect to the first dimension using central difference. " alt="" coords="309,132,392,159"/>
+<area shape="rect" id="node7" href="$classmirana.html#a21348ffe170eafc6fc2a009256b1b6e3" title="Differentiate with respect to the second dimension using central difference. " alt="" coords="309,234,392,260"/>
+</map>

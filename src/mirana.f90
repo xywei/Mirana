@@ -18,9 +18,9 @@
 Module Mirana
   implicit none
 
-  public  ! public members go here.
+  ! public  ! public members go here.
 
-  private ! private members go here.
+  ! private ! private members go here.
     
 contains
   !> Handling exceptions.
@@ -283,6 +283,7 @@ contains
   end subroutine dlp
 
   !> (Non-conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-conservative form central difference.
+  !! @note nmd() and greek() computes all fundamental coefficients in non-conservative form.
   !! @param mx N1-by-N2 real matrix, x-coordinate of mesh grid (fully determined).
   !! @param my N1-by-N2 real matrix, y-coordinate of mesh grid (fully determined).
   !! @param hxi real number, step size in computational domain along \f$\xi\f$ direction.
@@ -325,16 +326,112 @@ contains
 
   !> (Non-conservative Mesh D1) Compute \f$\partial\phi/\partial x\f$ using mesh variables
   !! @param phi N1-by-N2 real matrix.
+  !! @param xix N1-by-N2 real matrix, \f$\partial\xi\partial x\f$.
+  !! @param etx N1-by-N2 real matrix, \f$\partial\eta\partial x\f$.
   !! @param h1 real number, step size in \f$\xi\f$ axis.
   !! @param h2 real number, step size in \f$\eta\f$ axis.
   !! @return phi_x N1-by-N2 real matrix, only [2:N1-1]X[2:N2-1] are used.
-  subroutine nmd1(phi,h1,h2,phi_x)
+  subroutine nmd1(phi,xix,etx,h1,h2,phi_x)
     implicit none
     integer :: n1,n2
     double precision, intent(in) :: h1,h2
-    
+    double precision, allocatable, dimension(:,:), intent(in) :: phi,xix,etx
+    double precision, allocatable, dimension(:,:), intent(inout) :: phi_x
+    double precision, allocatable, dimension(:,:) :: phi1,phi2
+    if ( .not.allocated(phi) .or. .not.allocated(xix) .or. &
+         .not.allocated(etx) .or. .not.allocated(phi_x) ) then
+       call mirana_exception("Error in module Mirana.nmd1: array not allocated!")
+    end if
+    n1 = size(phi,1)
+    n2 = size(phi,2)
+    allocate( phi1(n1,n2) )
+    allocate( phi2(n1,n2) )
+    call d1(phi,h1,phi1)
+    call d2(phi,h2,phi2)
+    phi_x = phi1 * xix + phi2 * etx
+    deallocate( phi1 )
+    deallocate( phi2 )
+    return
   end subroutine nmd1
-  
+
+  !> (Non-conservative Mesh D2) Compute \f$\partial\phi/\partial y\f$ using mesh variables
+  !! @param phi N1-by-N2 real matrix.
+  !! @param xiy N1-by-N2 real matrix, \f$\partial\xi\partial y\f$.
+  !! @param ety N1-by-N2 real matrix, \f$\partial\eta\partial y\f$.
+  !! @param h1 real number, step size in \f$\xi\f$ axis.
+  !! @param h2 real number, step size in \f$\eta\f$ axis.
+  !! @return phi_y N1-by-N2 real matrix, only [2:N1-1]X[2:N2-1] are used.
+  subroutine nmd2(phi,xiy,ety,h1,h2,phi_y)
+    implicit none
+    integer :: n1,n2
+    double precision, intent(in) :: h1,h2
+    double precision, allocatable, dimension(:,:), intent(in) :: phi,xiy,ety
+    double precision, allocatable, dimension(:,:), intent(inout) :: phi_y
+    double precision, allocatable, dimension(:,:) :: phi1,phi2
+    if ( .not.allocated(phi) .or. .not.allocated(xiy) .or. &
+         .not.allocated(ety) .or. .not.allocated(phi_y) ) then
+       call mirana_exception("Error in module Mirana.nmd2: array not allocated!")
+    end if
+    n1 = size(phi,1)
+    n2 = size(phi,2)
+    allocate( phi1(n1,n2) )
+    allocate( phi2(n1,n2) )
+    call d1(phi,h1,phi1)
+    call d2(phi,h2,phi2)
+    phi_y = phi1 * xiy + phi2 * ety
+    deallocate( phi1 )
+    deallocate( phi2 )
+    return
+  end subroutine nmd2
+
+  !> (Non-conservative Mesh DLP) Compute \f$\Delta\phi\f$ using mesh variables
+  !! @param phi N1-by-N2 real matrix.
+  !! @param xix N1-by-N2 real matrix, \f$\partial\xi\partial x\f$.
+  !! @param xiy N1-by-N2 real matrix, \f$\partial\xi\partial y\f$.
+  !! @param etx N1-by-N2 real matrix, \f$\partial\eta\partial x\f$.
+  !! @param ety N1-by-N2 real matrix, \f$\partial\eta\partial y\f$.
+  !! @param alp N1-by-N2 real matrix, obtained from greek().
+  !! @param bet N1-by-N2 real matrix, obtained from greek().
+  !! @param h1 real number, step size in \f$\xi\f$ axis.
+  !! @param h2 real number, step size in \f$\eta\f$ axis.
+  !! @return phi_lp N1-by-N2 real matrix, only [2:N1-1]X[2:N2-1] are used.
+  subroutine nmdlp(phi,xix,xiy,etx,ety,alp,bet,h1,h2,phi_lp)
+    implicit none
+    integer :: n1,n2
+    double precision, intent(in) :: h1,h2
+    double precision, allocatable, dimension(:,:), intent(in) :: phi,alp,bet,xix,xiy,etx,ety
+    double precision, allocatable, dimension(:,:), intent(inout) :: phi_lp
+    double precision, allocatable, dimension(:,:) :: phi1,phi2,phi11,phi12,phi22
+    if ( .not.allocated(phi) .or. .not.allocated(xix) .or. &
+         .not.allocated(etx) .or. .not.allocated(xiy) .or. &
+         .not.allocated(ety) .or. .not.allocated(alp) .or. &
+         .not.allocated(bet) .or. .not.allocated(phi_lp) ) then
+       call mirana_exception("Error in module Mirana.nmdlp: array not allocated!")
+    end if
+    n1 = size(phi,1)
+    n2 = size(phi,2)
+    allocate( phi1(n1,n2) )
+    allocate( phi2(n1,n2) )
+    allocate( phi11(n1,n2) )
+    allocate( phi12(n1,n2) )
+    allocate( phi22(n1,n2) )
+    call d1(phi,h1,phi1)
+    call d2(phi,h2,phi2)
+    call d11(phi,h1,phi11)
+    call d12(phi,h1,h2,phi12)
+    call d22(phi,h2,phi22)
+    !===============================
+    phi_lp = (xix**2 + xiy**2) * phi11 + (etx**2 + ety**2) * phi22 + &
+         2.0 * (xix*etx + xiy*ety) * phi12 + alp * phi1 + bet * phi2
+    !===============================    
+    deallocate( phi1 )
+    deallocate( phi2 )
+    deallocate( phi11 )
+    deallocate( phi12 )
+    deallocate( phi22 )
+    return
+  end subroutine nmdlp
+
   !> Compute the two coefficients for transformed laplacian \f$\alpha,\beta\f$.
   !! @param mx real N1-by-N2 matrix, mesh coordinates - x.
   !! @param my real N1-by-N2 matrix, mesh coordinates - y.
@@ -366,7 +463,7 @@ contains
     if (.not.allocated(mx) .or. .not.allocated(my) .or. .not.allocated(xix) .or. &
          .not.allocated(xiy) .or. .not.allocated(etx) .or. .not.allocated(ety) .or. &
          .not.allocated(alp) .or. .not.allocated(bet) ) then
-       call mirana_exception("Rooro in module Mirana.greek: array not allocated!")
+       call mirana_exception("Error in module Mirana.greek: array not allocated!")
     end if
     allocate( jh1(n1,n2) )
     allocate( jh2(n1,n2) )
