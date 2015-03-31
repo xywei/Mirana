@@ -2,7 +2,7 @@
 Program example_3
   use Mirana
   implicit none
-  integer, parameter :: n1 = 30, n2 = 50
+  integer, parameter :: n1 = 1000, n2 = 1000
   double precision, parameter :: L = 1.9 !> A square domain
   double precision :: h1,h2,e1,e2,elp,x,y
   integer :: i,j
@@ -49,9 +49,9 @@ Program example_3
      do j = 2,n2-1
         x = h1 * i - L/2
         y = h2 * j - L/2
-        e1 = e1 + abs( 0 )
-        e2 = e2 + abs( 0 )
-        elp = elp + abs( 0 )
+        e1 = e1 + abs( p1(i,j) - ( 2*mesh1(i,j) + 3*mesh2(i,j) ) )
+        e2 = e2 + abs( p2(i,j) - ( 3*mesh1(i,j) + 4*mesh2(i,j) ) )
+        elp = elp + abs( plp(i,j) - 6 )
      end do
   end do
 
