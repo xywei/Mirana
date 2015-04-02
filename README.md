@@ -10,7 +10,8 @@ offer such adapters connecting physical and computational spaces.
 
 ## Dependency
 
-- The linear solver [HYPRE](https://computation.llnl.gov/project/linear_solvers/software.php)
+- [ITSOL](http://www-users.cs.umn.edu/~saad/software/ITSOL/index.html) ( ITERATIVE SOLVERS packag). 
+- [pARMS](http://www-users.cs.umn.edu/~saad/software/pARMS/) (parallel Algebraic Recursive Multilevel Solvers).
 
 ## Bug Reporting and General Support
 

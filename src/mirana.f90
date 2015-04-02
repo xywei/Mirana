@@ -13,7 +13,8 @@
 
 
 !> Provide the subroutines & functions for moving mesh computation.
-!! @todo 
+!! @todo Adapt grid/ to produce desired matrix
+!! @todo add Sconstruct to compile everything
 Module Mirana
   implicit none
 

@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="modulemirana-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">mirana Module Reference</div>  </div>
@@ -100,8 +100,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Provide the subroutines &amp; functions for moving mesh computation.  
  <a href="classmirana.html#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
 <tr class="memitem:ab002a22665f70b4c65bdcf70ac96d768"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmirana.html#ab002a22665f70b4c65bdcf70ac96d768">mirana_exception</a> (message)</td></tr>
 <tr class="memdesc:ab002a22665f70b4c65bdcf70ac96d768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handling exceptions.  <a href="#ab002a22665f70b4c65bdcf70ac96d768">More...</a><br/></td></tr>
 <tr class="separator:ab002a22665f70b4c65bdcf70ac96d768"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,16 +162,13 @@ Private Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provide the subroutines &amp; functions for moving mesh computation. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">test <a class="el" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . ">greek()</a> </p>
-<p class="enddd">finish <a class="el" href="classmirana.html#a6b48fffbaaa6f2256928cd73d8891261" title="(Non-conservative Mesh D1) Compute  using mesh variables ">nmd1()</a> </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Adapt grid/ to produce desired matrix </p>
+<p class="enddd">add Sconstruct to compile everything </p>
 </dd></dl>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a class="anchor" id="a4009036e8b04ac992641e36d34ab0ed4"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d1 </td>
@@ -197,11 +194,6 @@ Private Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Differentiate with respect to the first dimension using central difference. </p>
@@ -228,7 +220,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph.png" border="0" usemap="#classmirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph" alt=""/></div>
 <map name="classmirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph" id="classmirana_a4009036e8b04ac992641e36d34ab0ed4_icgraph">
-<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="296,5,381,32"/><area shape="rect" id="node3" href="classmirana.html#a9d6168761271912ebfea872e9f322cdc" title="Compute the derivative along the 1st direction at the 2nd kind of half points using central differenc..." alt="" coords="139,56,237,83"/><area shape="rect" id="node5" href="classmirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="141,107,235,133"/><area shape="rect" id="node7" href="classmirana.html#a6b48fffbaaa6f2256928cd73d8891261" title="(Non&#45;conservative Mesh D1) Compute &#160;using mesh variables " alt="" coords="137,157,239,184"/><area shape="rect" id="node8" href="classmirana.html#a04bd9101c8bdc2f8b69892bd773f3055" title="(Non&#45;conservative Mesh D2) Compute &#160;using mesh variables " alt="" coords="137,208,239,235"/><area shape="rect" id="node9" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="136,259,240,285"/><area shape="rect" id="node4" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="288,56,389,83"/><area shape="rect" id="node6" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="296,107,381,133"/></map>
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="296,5,381,32"/><area shape="rect" id="node3" href="classmirana.html#a9d6168761271912ebfea872e9f322cdc" title="Compute the derivative along the 1st direction at the 2nd kind of half points using central differenc..." alt="" coords="139,56,237,83"/><area shape="rect" id="node6" href="classmirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="141,157,235,184"/><area shape="rect" id="node8" href="classmirana.html#a6b48fffbaaa6f2256928cd73d8891261" title="(Non&#45;conservative Mesh D1) Compute &#160;using mesh variables " alt="" coords="288,208,389,235"/><area shape="rect" id="node9" href="classmirana.html#a04bd9101c8bdc2f8b69892bd773f3055" title="(Non&#45;conservative Mesh D2) Compute &#160;using mesh variables " alt="" coords="137,259,239,285"/><area shape="rect" id="node10" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="136,309,240,336"/><area shape="rect" id="node4" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="288,56,389,83"/><area shape="rect" id="node5" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="437,208,523,235"/><area shape="rect" id="node7" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="296,157,381,184"/></map>
 </div>
 </p>
 
@@ -237,9 +229,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="ab9b1e7b5e38c6a020e05196b452e6d02"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d11 </td>
@@ -265,11 +254,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute the second order derivative along the first dimension using central difference. </p>
@@ -296,7 +280,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_ab9b1e7b5e38c6a020e05196b452e6d02_icgraph.png" border="0" usemap="#classmirana_ab9b1e7b5e38c6a020e05196b452e6d02_icgraph" alt=""/></div>
 <map name="classmirana_ab9b1e7b5e38c6a020e05196b452e6d02_icgraph" id="classmirana_ab9b1e7b5e38c6a020e05196b452e6d02_icgraph">
-<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="296,5,381,32"/><area shape="rect" id="node3" href="classmirana.html#a353bce8a93046cd8fd25021634d6503e" title="Compute Laplacian using central difference. " alt="" coords="153,31,239,57"/><area shape="rect" id="node4" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="144,81,248,108"/></map>
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="296,5,381,32"/><area shape="rect" id="node3" href="classmirana.html#a353bce8a93046cd8fd25021634d6503e" title="Compute Laplacian using central difference. " alt="" coords="153,31,239,57"/><area shape="rect" id="node4" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="144,81,248,108"/><area shape="rect" id="node5" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="296,81,381,108"/></map>
 </div>
 </p>
 
@@ -305,9 +289,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="ae9ee4058ea2b6238b6b745e4468f6a8e"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d12 </td>
@@ -339,11 +320,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Comopute the mixed second order derivative using central difference. </p>
@@ -371,7 +347,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_ae9ee4058ea2b6238b6b745e4468f6a8e_icgraph.png" border="0" usemap="#classmirana_ae9ee4058ea2b6238b6b745e4468f6a8e_icgraph" alt=""/></div>
 <map name="classmirana_ae9ee4058ea2b6238b6b745e4468f6a8e_icgraph" id="classmirana_ae9ee4058ea2b6238b6b745e4468f6a8e_icgraph">
-<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="153,5,239,32"/><area shape="rect" id="node3" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="144,56,248,83"/></map>
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="153,5,239,32"/><area shape="rect" id="node3" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="144,56,248,83"/><area shape="rect" id="node4" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="296,56,381,83"/></map>
 </div>
 </p>
 
@@ -380,9 +356,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="acc84c99770972f6328e89ac04ac67153"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d1h1 </td>
@@ -408,11 +381,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute the derivative along the 1st direction at the 1st kind of half points using central difference. </p>
@@ -439,7 +407,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_acc84c99770972f6328e89ac04ac67153_icgraph.png" border="0" usemap="#classmirana_acc84c99770972f6328e89ac04ac67153_icgraph" alt=""/></div>
 <map name="classmirana_acc84c99770972f6328e89ac04ac67153_icgraph" id="classmirana_acc84c99770972f6328e89ac04ac67153_icgraph">
-<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="160,5,245,32"/><area shape="rect" id="node3" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="152,56,253,83"/></map>
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="160,5,245,32"/><area shape="rect" id="node3" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="152,56,253,83"/><area shape="rect" id="node4" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="301,56,387,83"/></map>
 </div>
 </p>
 
@@ -448,9 +416,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a9d6168761271912ebfea872e9f322cdc"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d1h2 </td>
@@ -476,11 +441,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute the derivative along the 1st direction at the 2nd kind of half points using central difference. </p>
@@ -507,7 +467,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_a9d6168761271912ebfea872e9f322cdc_icgraph.png" border="0" usemap="#classmirana_a9d6168761271912ebfea872e9f322cdc_icgraph" alt=""/></div>
 <map name="classmirana_a9d6168761271912ebfea872e9f322cdc_icgraph" id="classmirana_a9d6168761271912ebfea872e9f322cdc_icgraph">
-<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="160,5,245,32"/><area shape="rect" id="node3" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="152,56,253,83"/></map>
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="160,5,245,32"/><area shape="rect" id="node3" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="152,56,253,83"/><area shape="rect" id="node4" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="301,56,387,83"/></map>
 </div>
 </p>
 
@@ -516,9 +476,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a21348ffe170eafc6fc2a009256b1b6e3"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d2 </td>
@@ -544,11 +501,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Differentiate with respect to the second dimension using central difference. </p>
@@ -575,7 +527,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph.png" border="0" usemap="#classmirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph" alt=""/></div>
 <map name="classmirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph" id="classmirana_a21348ffe170eafc6fc2a009256b1b6e3_icgraph">
-<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="296,5,381,32"/><area shape="rect" id="node3" href="classmirana.html#a9341f957abd27c5132c557ae873055bd" title="Compute the derivative along the 2nd direction at the 1st kind of half points using central differenc..." alt="" coords="139,56,237,83"/><area shape="rect" id="node5" href="classmirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="141,107,235,133"/><area shape="rect" id="node7" href="classmirana.html#a6b48fffbaaa6f2256928cd73d8891261" title="(Non&#45;conservative Mesh D1) Compute &#160;using mesh variables " alt="" coords="137,157,239,184"/><area shape="rect" id="node8" href="classmirana.html#a04bd9101c8bdc2f8b69892bd773f3055" title="(Non&#45;conservative Mesh D2) Compute &#160;using mesh variables " alt="" coords="137,208,239,235"/><area shape="rect" id="node9" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="136,259,240,285"/><area shape="rect" id="node4" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="288,56,389,83"/><area shape="rect" id="node6" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="296,107,381,133"/></map>
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="296,5,381,32"/><area shape="rect" id="node3" href="classmirana.html#a9341f957abd27c5132c557ae873055bd" title="Compute the derivative along the 2nd direction at the 1st kind of half points using central differenc..." alt="" coords="139,56,237,83"/><area shape="rect" id="node6" href="classmirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="141,157,235,184"/><area shape="rect" id="node8" href="classmirana.html#a6b48fffbaaa6f2256928cd73d8891261" title="(Non&#45;conservative Mesh D1) Compute &#160;using mesh variables " alt="" coords="288,208,389,235"/><area shape="rect" id="node9" href="classmirana.html#a04bd9101c8bdc2f8b69892bd773f3055" title="(Non&#45;conservative Mesh D2) Compute &#160;using mesh variables " alt="" coords="137,259,239,285"/><area shape="rect" id="node10" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="136,309,240,336"/><area shape="rect" id="node4" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="288,56,389,83"/><area shape="rect" id="node5" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="437,208,523,235"/><area shape="rect" id="node7" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="296,157,381,184"/></map>
 </div>
 </p>
 
@@ -584,9 +536,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a9161b0947ddd188ac99d9246a1d81aed"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d22 </td>
@@ -612,11 +561,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute the second order derivative along the second dimension using central difference. </p>
@@ -643,7 +587,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_a9161b0947ddd188ac99d9246a1d81aed_icgraph.png" border="0" usemap="#classmirana_a9161b0947ddd188ac99d9246a1d81aed_icgraph" alt=""/></div>
 <map name="classmirana_a9161b0947ddd188ac99d9246a1d81aed_icgraph" id="classmirana_a9161b0947ddd188ac99d9246a1d81aed_icgraph">
-<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="296,5,381,32"/><area shape="rect" id="node3" href="classmirana.html#a353bce8a93046cd8fd25021634d6503e" title="Compute Laplacian using central difference. " alt="" coords="153,31,239,57"/><area shape="rect" id="node4" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="144,81,248,108"/></map>
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="296,5,381,32"/><area shape="rect" id="node3" href="classmirana.html#a353bce8a93046cd8fd25021634d6503e" title="Compute Laplacian using central difference. " alt="" coords="153,31,239,57"/><area shape="rect" id="node4" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="144,81,248,108"/><area shape="rect" id="node5" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="296,81,381,108"/></map>
 </div>
 </p>
 
@@ -652,9 +596,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a9341f957abd27c5132c557ae873055bd"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d2h1 </td>
@@ -680,11 +621,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute the derivative along the 2nd direction at the 1st kind of half points using central difference. </p>
@@ -711,7 +647,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_a9341f957abd27c5132c557ae873055bd_icgraph.png" border="0" usemap="#classmirana_a9341f957abd27c5132c557ae873055bd_icgraph" alt=""/></div>
 <map name="classmirana_a9341f957abd27c5132c557ae873055bd_icgraph" id="classmirana_a9341f957abd27c5132c557ae873055bd_icgraph">
-<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="160,5,245,32"/><area shape="rect" id="node3" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="152,56,253,83"/></map>
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="160,5,245,32"/><area shape="rect" id="node3" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="152,56,253,83"/><area shape="rect" id="node4" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="301,56,387,83"/></map>
 </div>
 </p>
 
@@ -720,9 +656,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a4f47c93df57dd51d1414b2514fd1b339"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::d2h2 </td>
@@ -748,11 +681,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute the derivative along the 2nd direction at the 2nd kind of half points using central difference. </p>
@@ -779,7 +707,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_a4f47c93df57dd51d1414b2514fd1b339_icgraph.png" border="0" usemap="#classmirana_a4f47c93df57dd51d1414b2514fd1b339_icgraph" alt=""/></div>
 <map name="classmirana_a4f47c93df57dd51d1414b2514fd1b339_icgraph" id="classmirana_a4f47c93df57dd51d1414b2514fd1b339_icgraph">
-<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="160,5,245,32"/><area shape="rect" id="node3" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="152,56,253,83"/></map>
+<area shape="rect" id="node2" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="160,5,245,32"/><area shape="rect" id="node3" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="152,56,253,83"/><area shape="rect" id="node4" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="301,56,387,83"/></map>
 </div>
 </p>
 
@@ -788,9 +716,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a353bce8a93046cd8fd25021634d6503e"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::dlp </td>
@@ -822,11 +747,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute Laplacian using central difference. </p>
@@ -863,9 +783,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a7530ea2e7b2dfe85f3a088d24de59f1d"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::greek </td>
@@ -933,11 +850,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute the two coefficients for transformed laplacian \(\alpha,\beta\). </p>
@@ -967,14 +879,20 @@ Here is the call graph for this function:</div>
 </div>
 </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmirana_a7530ea2e7b2dfe85f3a088d24de59f1d_icgraph.png" border="0" usemap="#classmirana_a7530ea2e7b2dfe85f3a088d24de59f1d_icgraph" alt=""/></div>
+<map name="classmirana_a7530ea2e7b2dfe85f3a088d24de59f1d_icgraph" id="classmirana_a7530ea2e7b2dfe85f3a088d24de59f1d_icgraph">
+<area shape="rect" id="node2" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="155,5,240,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a65a514d206d0e8ae53253938d2aff553"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::mbc_d </td>
@@ -1006,11 +924,6 @@ Here is the call graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh. </p>
@@ -1043,7 +956,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_a65a514d206d0e8ae53253938d2aff553_icgraph.png" border="0" usemap="#classmirana_a65a514d206d0e8ae53253938d2aff553_icgraph" alt=""/></div>
 <map name="classmirana_a65a514d206d0e8ae53253938d2aff553_icgraph" id="classmirana_a65a514d206d0e8ae53253938d2aff553_icgraph">
-<area shape="rect" id="node2" href="classmirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="163,5,258,32"/><area shape="rect" id="node3" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="307,5,392,32"/></map>
+<area shape="rect" id="node2" href="classmirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="163,31,258,57"/><area shape="rect" id="node3" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="307,5,392,32"/><area shape="rect" id="node4" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="307,56,392,83"/></map>
 </div>
 </p>
 
@@ -1052,9 +965,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="ab002a22665f70b4c65bdcf70ac96d768"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::mirana_exception </td>
@@ -1064,11 +974,6 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Handling exceptions. </p>
@@ -1085,7 +990,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_ab002a22665f70b4c65bdcf70ac96d768_icgraph.png" border="0" usemap="#classmirana_ab002a22665f70b4c65bdcf70ac96d768_icgraph" alt=""/></div>
 <map name="classmirana_ab002a22665f70b4c65bdcf70ac96d768_icgraph" id="classmirana_ab002a22665f70b4c65bdcf70ac96d768_icgraph">
-<area shape="rect" id="node2" href="classmirana.html#acccf612b21e3e65bd3a78131c48afe2b" title="Allocate memory for new arrays. " alt="" coords="224,5,387,32"/><area shape="rect" id="node3" href="classmirana.html#a4009036e8b04ac992641e36d34ab0ed4" title="Differentiate with respect to the first dimension using central difference. " alt="" coords="264,461,347,488"/><area shape="rect" id="node5" href="classmirana.html#a9d6168761271912ebfea872e9f322cdc" title="Compute the derivative along the 1st direction at the 2nd kind of half points using central differenc..." alt="" coords="438,512,535,539"/><area shape="rect" id="node6" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="587,259,688,285"/><area shape="rect" id="node7" href="classmirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="439,157,534,184"/><area shape="rect" id="node9" href="classmirana.html#a6b48fffbaaa6f2256928cd73d8891261" title="(Non&#45;conservative Mesh D1) Compute &#160;using mesh variables " alt="" coords="436,360,537,387"/><area shape="rect" id="node10" href="classmirana.html#a04bd9101c8bdc2f8b69892bd773f3055" title="(Non&#45;conservative Mesh D2) Compute &#160;using mesh variables " alt="" coords="436,411,537,437"/><area shape="rect" id="node11" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="435,613,539,640"/><area shape="rect" id="node12" href="classmirana.html#a21348ffe170eafc6fc2a009256b1b6e3" title="Differentiate with respect to the second dimension using central difference. " alt="" coords="264,309,347,336"/><area shape="rect" id="node13" href="classmirana.html#a9341f957abd27c5132c557ae873055bd" title="Compute the derivative along the 2nd direction at the 1st kind of half points using central differenc..." alt="" coords="438,259,535,285"/><area shape="rect" id="node14" href="classmirana.html#acc84c99770972f6328e89ac04ac67153" title="Compute the derivative along the 1st direction at the 1st kind of half points using central differenc..." alt="" coords="438,208,535,235"/><area shape="rect" id="node15" href="classmirana.html#a4f47c93df57dd51d1414b2514fd1b339" title="Compute the derivative along the 2nd direction at the 2nd kind of half points using central differenc..." alt="" coords="438,563,535,589"/><area shape="rect" id="node16" href="classmirana.html#ab9b1e7b5e38c6a020e05196b452e6d02" title="Compute the second order derivative along the first dimension using central difference. " alt="" coords="260,765,351,792"/><area shape="rect" id="node17" href="classmirana.html#a353bce8a93046cd8fd25021634d6503e" title="Compute Laplacian using central difference. " alt="" coords="443,816,530,843"/><area shape="rect" id="node18" href="classmirana.html#ae9ee4058ea2b6238b6b745e4468f6a8e" title="Comopute the mixed second order derivative using central difference. " alt="" coords="260,664,351,691"/><area shape="rect" id="node19" href="classmirana.html#a9161b0947ddd188ac99d9246a1d81aed" title="Compute the second order derivative along the second dimension using central difference. " alt="" coords="260,715,351,741"/><area shape="rect" id="node20" href="classmirana.html#a65a514d206d0e8ae53253938d2aff553" title="(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh..." alt="" coords="251,107,359,133"/><area shape="rect" id="node4" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="595,537,680,564"/><area shape="rect" id="node8" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="595,157,680,184"/></map>
+<area shape="rect" id="node2" href="classmirana.html#acccf612b21e3e65bd3a78131c48afe2b" title="Allocate memory for new arrays. " alt="" coords="224,5,387,32"/><area shape="rect" id="node3" href="classmirana.html#a4009036e8b04ac992641e36d34ab0ed4" title="Differentiate with respect to the first dimension using central difference. " alt="" coords="264,411,347,437"/><area shape="rect" id="node5" href="classmirana.html#a9d6168761271912ebfea872e9f322cdc" title="Compute the derivative along the 1st direction at the 2nd kind of half points using central differenc..." alt="" coords="438,309,535,336"/><area shape="rect" id="node6" href="classmirana.html#a7530ea2e7b2dfe85f3a088d24de59f1d" title="Compute the two coefficients for transformed laplacian . " alt="" coords="587,284,688,311"/><area shape="rect" id="node8" href="classmirana.html#a53c223d4530275ef3fc6a5820f5b0990" title="(Non&#45;conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computationa..." alt="" coords="439,107,534,133"/><area shape="rect" id="node10" href="classmirana.html#a6b48fffbaaa6f2256928cd73d8891261" title="(Non&#45;conservative Mesh D1) Compute &#160;using mesh variables " alt="" coords="436,360,537,387"/><area shape="rect" id="node11" href="classmirana.html#a04bd9101c8bdc2f8b69892bd773f3055" title="(Non&#45;conservative Mesh D2) Compute &#160;using mesh variables " alt="" coords="436,563,537,589"/><area shape="rect" id="node12" href="classmirana.html#a503a76ad6fbdf28508f8d71786bed518" title="(Non&#45;conservative Mesh DLP) Compute &#160;using mesh variables " alt="" coords="435,664,539,691"/><area shape="rect" id="node13" href="classmirana.html#a21348ffe170eafc6fc2a009256b1b6e3" title="Differentiate with respect to the second dimension using central difference. " alt="" coords="264,512,347,539"/><area shape="rect" id="node14" href="classmirana.html#a9341f957abd27c5132c557ae873055bd" title="Compute the derivative along the 2nd direction at the 1st kind of half points using central differenc..." alt="" coords="438,461,535,488"/><area shape="rect" id="node15" href="classmirana.html#acc84c99770972f6328e89ac04ac67153" title="Compute the derivative along the 1st direction at the 1st kind of half points using central differenc..." alt="" coords="438,208,535,235"/><area shape="rect" id="node16" href="classmirana.html#a4f47c93df57dd51d1414b2514fd1b339" title="Compute the derivative along the 2nd direction at the 2nd kind of half points using central differenc..." alt="" coords="438,259,535,285"/><area shape="rect" id="node17" href="classmirana.html#ab9b1e7b5e38c6a020e05196b452e6d02" title="Compute the second order derivative along the first dimension using central difference. " alt="" coords="260,715,351,741"/><area shape="rect" id="node18" href="classmirana.html#a353bce8a93046cd8fd25021634d6503e" title="Compute Laplacian using central difference. " alt="" coords="443,816,530,843"/><area shape="rect" id="node19" href="classmirana.html#ae9ee4058ea2b6238b6b745e4468f6a8e" title="Comopute the mixed second order derivative using central difference. " alt="" coords="260,613,351,640"/><area shape="rect" id="node20" href="classmirana.html#a9161b0947ddd188ac99d9246a1d81aed" title="Compute the second order derivative along the second dimension using central difference. " alt="" coords="260,765,351,792"/><area shape="rect" id="node21" href="classmirana.html#a65a514d206d0e8ae53253938d2aff553" title="(Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh..." alt="" coords="251,56,359,83"/><area shape="rect" id="node4" href="example__1_8f90.html#a33b791e70f7381682d35121a46397153" title="Test for ordinary differentiation. " alt="" coords="595,473,680,500"/><area shape="rect" id="node7" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="736,360,821,387"/><area shape="rect" id="node9" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="595,107,680,133"/></map>
 </div>
 </p>
 
@@ -1094,9 +999,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="acccf612b21e3e65bd3a78131c48afe2b"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::mirana_memory </td>
@@ -1122,11 +1024,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Allocate memory for new arrays. </p>
@@ -1153,9 +1050,6 @@ Here is the call graph for this function:</div>
 <a class="anchor" id="a53c223d4530275ef3fc6a5820f5b0990"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::nmd </td>
@@ -1217,11 +1111,6 @@ Here is the call graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>(Non-conservative Mesh Differentiation) Compute derivatives of mesh grid with respect to computational space and inverse using non-conservative form central difference. </p>
@@ -1259,7 +1148,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmirana_a53c223d4530275ef3fc6a5820f5b0990_icgraph.png" border="0" usemap="#classmirana_a53c223d4530275ef3fc6a5820f5b0990_icgraph" alt=""/></div>
 <map name="classmirana_a53c223d4530275ef3fc6a5820f5b0990_icgraph" id="classmirana_a53c223d4530275ef3fc6a5820f5b0990_icgraph">
-<area shape="rect" id="node2" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="149,5,235,32"/></map>
+<area shape="rect" id="node2" href="example__2_8f90.html#abc1eb48381332994bda2f9fa625923b1" title="Test for mesh differentiation. " alt="" coords="149,5,235,32"/><area shape="rect" id="node3" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="149,56,235,83"/></map>
 </div>
 </p>
 
@@ -1268,9 +1157,6 @@ Here is the caller graph for this function:</div>
 <a class="anchor" id="a6b48fffbaaa6f2256928cd73d8891261"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::nmd1 </td>
@@ -1314,11 +1200,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>(Non-conservative Mesh D1) Compute \(\partial\phi/\partial x\) using mesh variables </p>
@@ -1343,14 +1224,20 @@ Here is the call graph for this function:</div>
 </div>
 </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmirana_a6b48fffbaaa6f2256928cd73d8891261_icgraph.png" border="0" usemap="#classmirana_a6b48fffbaaa6f2256928cd73d8891261_icgraph" alt=""/></div>
+<map name="classmirana_a6b48fffbaaa6f2256928cd73d8891261_icgraph" id="classmirana_a6b48fffbaaa6f2256928cd73d8891261_icgraph">
+<area shape="rect" id="node2" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="155,5,240,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a04bd9101c8bdc2f8b69892bd773f3055"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::nmd2 </td>
@@ -1394,11 +1281,6 @@ Here is the call graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>(Non-conservative Mesh D2) Compute \(\partial\phi/\partial y\) using mesh variables </p>
@@ -1423,14 +1305,20 @@ Here is the call graph for this function:</div>
 </div>
 </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmirana_a04bd9101c8bdc2f8b69892bd773f3055_icgraph.png" border="0" usemap="#classmirana_a04bd9101c8bdc2f8b69892bd773f3055_icgraph" alt=""/></div>
+<map name="classmirana_a04bd9101c8bdc2f8b69892bd773f3055_icgraph" id="classmirana_a04bd9101c8bdc2f8b69892bd773f3055_icgraph">
+<area shape="rect" id="node2" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="155,5,240,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a503a76ad6fbdf28508f8d71786bed518"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::nmdlp </td>
@@ -1498,11 +1386,6 @@ Here is the call graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>(Non-conservative Mesh DLP) Compute \(\Delta\phi\) using mesh variables </p>
@@ -1531,14 +1414,20 @@ Here is the call graph for this function:</div>
 </div>
 </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmirana_a503a76ad6fbdf28508f8d71786bed518_icgraph.png" border="0" usemap="#classmirana_a503a76ad6fbdf28508f8d71786bed518_icgraph" alt=""/></div>
+<map name="classmirana_a503a76ad6fbdf28508f8d71786bed518_icgraph" id="classmirana_a503a76ad6fbdf28508f8d71786bed518_icgraph">
+<area shape="rect" id="node2" href="example__3_8f90.html#a108de56d32a57564c265cb8e2c53a632" title="Test for differentiation on the moving mesh. " alt="" coords="157,5,243,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a9cbee1a318e5e828590c9ccaa51c8472"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine mirana::save_mesh </td>
@@ -1558,11 +1447,6 @@ Here is the call graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Write mesh data into .dat file for plot. </p>
