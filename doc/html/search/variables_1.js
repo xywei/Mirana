@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jcb',['jcb',['../namespacemirana.html#add08eebb607defee5cf89f76ac980301',1,'mirana']]]
+  ['tips',['tips',['../mirana_8f03.html#a30bb699f8329a1570c8658779930f0f2',1,'mirana.f03']]]
 ];
