@@ -1,0 +1,77 @@
+\hypertarget{arms__fgmres_8c}{}\section{src/arms\+\_\+fgmres.c File Reference}
+\label{arms__fgmres_8c}\index{src/arms\+\_\+fgmres.\+c@{src/arms\+\_\+fgmres.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}globheads.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}protos.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ios.\+h\char`\"{}}\\*
+Include dependency graph for arms\+\_\+fgmres.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arms__fgmres_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{arms__fgmres_8c_a0c77a091415b095c3e076d47c1f7e471}{T\+O\+L\+\_\+\+D\+D}~0.\+7   /$\ast$ diagonal dominance tolerance for $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{arms__fgmres_8c_a897da0f867f3a74eb0bb1aa7b071db35}{arms\+\_\+fgmres\+\_\+} (int $\ast$n, double val\mbox{[}$\,$\mbox{]}, int col\+\_\+ind\mbox{[}$\,$\mbox{]}, int row\+\_\+ptr\mbox{[}$\,$\mbox{]}, double rhs\mbox{[}$\,$\mbox{]}, double solu\mbox{[}$\,$\mbox{]}, int $\ast$ierr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{arms__fgmres_8c_a0c77a091415b095c3e076d47c1f7e471}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!T\+O\+L\+\_\+\+D\+D@{T\+O\+L\+\_\+\+D\+D}}
+\index{T\+O\+L\+\_\+\+D\+D@{T\+O\+L\+\_\+\+D\+D}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{T\+O\+L\+\_\+\+D\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+L\+\_\+\+D\+D~0.\+7   /$\ast$ diagonal dominance tolerance for $\ast$/}\label{arms__fgmres_8c_a0c77a091415b095c3e076d47c1f7e471}
+
+
+\subsection{Function Documentation}
+\hypertarget{arms__fgmres_8c_a897da0f867f3a74eb0bb1aa7b071db35}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!arms\+\_\+fgmres\+\_\+@{arms\+\_\+fgmres\+\_\+}}
+\index{arms\+\_\+fgmres\+\_\+@{arms\+\_\+fgmres\+\_\+}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{arms\+\_\+fgmres\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void arms\+\_\+fgmres\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{n, }
+\item[{double}]{val\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{col\+\_\+ind\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{row\+\_\+ptr\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{rhs\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{solu\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{ierr}
+\end{DoxyParamCaption}
+)}\label{arms__fgmres_8c_a897da0f867f3a74eb0bb1aa7b071db35}
+Solve a (square) system using A\+R\+M\+S preconditioned fgmres by calling I\+T\+S\+O\+L2. 
+\begin{DoxyParams}{Parameters}
+{\em n} & integer, number of rows. \\
+\hline
+{\em val} & real N\+N\+Z-\/by-\/1 array, coefficients. \\
+\hline
+{\em col\+\_\+ind} & integer N\+N\+Z-\/by-\/1 array, column indices. \\
+\hline
+{\em row\+\_\+ptr} & integer (N+1)-\/by-\/1 array, with the last element row\+\_\+ptr\mbox{[}N\mbox{]} = N\+N\+Z+1. \\
+\hline
+{\em rhs} & real N-\/by-\/1 array, the right hand side. \\
+\hline
+{\em solu} & real N-\/by-\/1 array, place for the solution. \\
+\hline
+{\em ierr} & 0 if no error occurs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+When calling this function from Fortran, one must notice\+:
+\begin{DoxyItemize}
+\item case sensitivity (since C is case sensitive but Fortran is not);
+\item possible additional trailing underscore (\char`\"{}\+\_\+\char`\"{}) in C function names (the underscore is added by some Fortran compilers);
+\item possible additional Fortran libraries that need to be linked to build the executable;
+\item fortran subroutines are always \char`\"{}call by reference\char`\"{} while C can be either \char`\"{}call by reference\char`\"{} or \char`\"{}call by value\char`\"{}. 
+\end{DoxyItemize}
+\end{DoxyNote}

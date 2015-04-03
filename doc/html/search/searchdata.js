@@ -1,10 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "degmnrst",
+  0: "adegmnrst",
   1: "m",
-  2: "emr",
-  3: "degmns",
-  4: "mt"
+  2: "aemr",
+  3: "adegmns",
+  4: "t",
+  5: "mt"
 };
 
 var indexSectionNames =
@@ -13,7 +14,8 @@ var indexSectionNames =
   1: "namespaces",
   2: "files",
   3: "functions",
-  4: "pages"
+  4: "defines",
+  5: "pages"
 };
 
 var indexSectionLabels =
@@ -22,6 +24,7 @@ var indexSectionLabels =
   1: "Namespaces",
   2: "Files",
   3: "Functions",
-  4: "Pages"
+  4: "Macros",
+  5: "Pages"
 };
 

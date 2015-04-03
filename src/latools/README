@@ -1,0 +1,5 @@
+This folder contains several linear algebra packages:
+ - SPARSKIT2 
+ - ITSOL2
+
+For more information please read the README file in the main directory.
