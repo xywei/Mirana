@@ -32,10 +32,12 @@ demo: ${DEMOSRC} ${MOD}/mirana.mod
 	$(FC) -I${MOD} -o ${BIN}/example_1.o demo/example_1.f90 ${LIB}/mirana.o
 	$(FC) -I${MOD} -o ${BIN}/example_2.o demo/example_2.f90 ${LIB}/mirana.o
 	$(FC) -I${MOD} -o ${BIN}/example_3.o demo/example_3.f90 ${LIB}/mirana.o
-	$(FC) -I${MOD} -I${ITSOL2}/INC -L${ITSOL2}/OBJ -o ${BIN}/example_4.o demo/example_4.f90 ${LIB}/*.o ${ITSOL2}/LIB/libitsol.a -llapack -lblas
+	$(FC) -I${MOD} -I${ITSOL2}/INC -L${ITSOL2}/OBJ -L${ITSOL2}/LIB -o ${BIN}/example_4.o demo/example_4.f90 ${LIB}/*.o -llapack -lblas
 
 itsol2: ${ITSOL2}
 	cd src/latools/ITSOL_2 && \
+	mkdir -p OBJ && \
+	mkdir -p LIB && \
 	make
 
 clean :
