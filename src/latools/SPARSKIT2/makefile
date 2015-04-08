@@ -19,8 +19,10 @@
 #
 # Last Updated:  May 9, 1994.
 
+include ../../../Makefile.in
+
 SHELL = /bin/sh
-F77 = f77 
+F77 = ${FCC}
 # F77 = f77 
 # AR = ar rcv 
 AR = ar -rcv 

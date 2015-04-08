@@ -1,13 +1,16 @@
 # this makefile is for LINUX machines only 
+
+include ../../../Makefile.in
+
 OBJS = $(addprefix OBJ/, fgmr.o iluk.o ilut.o arms2.o ilutpC.o ilutc.o \
 	vbiluk.o vbilut.o auxill.o PQ.o piluNEW.o indsetC.o sets.o \
 	MatOps.o tools.o systimer.o misc.o setblks.o svdInvC.o)
 AR = ar
 
 #
-FC      =  gfortran
+#FC      =  gfortran
 FCFLAGS =  -c -g -Wall -I./INC
-CC      =  gcc
+#CC      =  gcc
 CCFLAGS =  -c -g -DLINUX -Wall -O3 -I./INC
 LIB     = LIB/libitsol.a
 #
