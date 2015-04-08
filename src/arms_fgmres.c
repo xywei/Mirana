@@ -73,15 +73,12 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   
   /*-------------------- setup data structure for mat (csptr) struct */
   tmp = (double *) malloc(n*sizeof(double));
-  
+  mat = (csptr) malloc( sizeof(SparMat) ); 
   mat->n = n;
   mat->nzcount = (int *)malloc( n*sizeof(int));
-  fprintf(flog,"!!!!!!!!!!!!!!!!\n");  
   mat->ja = (int **) Malloc( n*sizeof(int *), "setupCS" );
   mat->ma = (double **) Malloc( n*sizeof(double *), "setupCS" );
   
-
-
   /* Construct C-Style matrix from [val,col_ind,row-ptr] */
   for (k=0; k<n; k++)
     mat->nzcount[k] = row_ptr[k+1] - row_ptr[k];
