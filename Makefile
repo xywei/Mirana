@@ -46,6 +46,9 @@ itsol2: ${ITSOL2}
 sparskit: ${SPARSKIT2}
 	cd ${SPARSKIT2} && make
 
+doxy:
+	doxygen Doxyfile
+
 clean :
 	rm -rf ${LIB} ${INCLUDE} ${BIN}
 	cd ${ITSOL2} && make cleanall

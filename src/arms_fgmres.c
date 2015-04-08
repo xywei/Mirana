@@ -1,3 +1,7 @@
+/*! \file arms_fgmres.c
+    \brief Calling ITSOL2 to solve linear equations.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,29 +14,46 @@
 #include "protos.h"
 #include "ios.h"
 
-#define TOL 1.0e-8    /* tolerance for stopping iteration */
+#define TOL 1.0e-8
+/*! \def TOL
+ Tolerance for stopping iteration */
 
-#define TOL_DD 0.7   /* diagonal dominance tolerance for */
-                     /* independent sets                 */
+#define TOL_DD 0.7
+/*! \def TOL_DD
+ Diagonal dominance tolerance for independent sets */
 
-#define MAXITS 200   /* Maximum number of outer iterations */
+#define MAXITS 200
+/** \def MAXITS
+ Maximum number of outer iterations */
 
-#define MAX_NUM_LEV 10  /* maximum number of levels for arms */
+#define MAX_NUM_LEV 10
+/** \def MAX_NUM_LEV
+ Maximum number of levels for arms */
 
-#define IM 60    /* dimension of Krylov subspace in (outer) FGMRES */
+#define IM 60
+/** \def IM
+ Dimension of Krylov subspace in (outer) FGMRES */
 
-#define PERM_TYPE 0           /* Indset (0) / PQ (1)    permutation   */
-                              /* note that these refer to completely  */
-                              /* different methods for reordering A   */
-                              /* 0 = standard ARMS independent sets   */
-                              /* 1 = arms with ddPQ ordering          */
-                              /* 2 = acoarsening-based ordering [new] */
+#define PERM_TYPE 0
+/** \def PERM_TYPE
+ Indset (0) / PQ (1) permutation, note that these refer to completely different methods for reordering A
+                               -  0 = standard ARMS independent sets   
+                               -  1 = arms with ddPQ ordering          
+                               -  2 = acoarsening-based ordering [new] */
 
-#define BLOCK_SIZE 30 /* smallest size allowed for last schur comp. */
+#define BLOCK_SIZE 30
+/** \def BLOCK_SIZE
+ Smallest size allowed for last schur comp. */
 
-#define DIAG_SCALE 1 /* diagonal scaling  0:no 1:yes */
+#define DIAG_SCALE 1
+/** \def DIAG_SCALE
+ Diagonal scaling  
+ - 0:no
+ - 1:yes */
 
-#define LFIL0 50    /* initial fill-in parameter */
+#define LFIL0 50
+/** \def LFIL0
+ Initial fill-in parameter */
 
 /** Solve a (square) system using ARMS preconditioned fgmres by calling ITSOL2. Adapted from "mainARMS.c" in ITSOL2/TESTS.
  *  \param N integer, number of rows.
@@ -40,9 +61,9 @@
  *  \param col_ind integer NNZ-by-1 array, column indices.
  *  \param row_ptr integer (N+1)-by-1 array, with the last element row_ptr[N] = NNZ+1.
  *  \param rhs real N-by-1 array, the right hand side.
- *  \param sol real N-by-1 array, place for the solution.
+ *  \param sol (intent: inout) real N-by-1 array, place for the solution.
  *  \param init real N-by-1 array, initial guess.
- *  \param ie 0 if no error occurs.
+ *  \param ie (intent: inout) 0 if no error occurs.
  *  \note When calling this function from Fortran, one must notice:
  *  - case sensitivity (since C is case sensitive but Fortran is not);
  *  - possible additional trailing underscore ("_") in C function names (the underscore is added by some Fortran compilers);
@@ -57,7 +78,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   SMatptr MAT = NULL;    /* Matrix structure for matvecs    */
   SPreptr PRE = NULL;    /* general precond structure       */
   double * tmp;
-  int ierr, job=1, i, k, l;
+  int ierr, job=1, i, k, l; 
   int n = *N;
   int nnz = row_ptr[n] - 1;
   double fillfact, terr;

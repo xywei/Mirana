@@ -1,5 +1,10 @@
 \hypertarget{arms__fgmres_8c}{}\section{src/arms\+\_\+fgmres.c File Reference}
 \label{arms__fgmres_8c}\index{src/arms\+\_\+fgmres.\+c@{src/arms\+\_\+fgmres.\+c}}
+
+
+Calling I\+T\+S\+O\+L2 to solve linear equations.  
+
+
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
@@ -20,38 +25,93 @@ Include dependency graph for arms\+\_\+fgmres.\+c\+:\nopagebreak
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{arms__fgmres_8c_a0c77a091415b095c3e076d47c1f7e471}{T\+O\+L\+\_\+\+D\+D}~0.\+7   /$\ast$ diagonal dominance tolerance for $\ast$/
+\#define \hyperlink{arms__fgmres_8c_a156b862ebf6d213f5da19b9e3ccb779e}{T\+O\+L}~1.\+0e-\/8
+\item 
+\#define \hyperlink{arms__fgmres_8c_a0c77a091415b095c3e076d47c1f7e471}{T\+O\+L\+\_\+\+D\+D}~0.\+7
+\item 
+\#define \hyperlink{arms__fgmres_8c_a7f03e4cf9d0205f40bb9a1a8ce839a68}{M\+A\+X\+I\+T\+S}~200
+\item 
+\#define \hyperlink{arms__fgmres_8c_ae3671b8892cf82f7b3b110cfc33d3bde}{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+L\+E\+V}~10
+\item 
+\#define \hyperlink{arms__fgmres_8c_a51c0dfe766601d31e907fceae818a7ca}{I\+M}~60
+\item 
+\#define \hyperlink{arms__fgmres_8c_ae766191b1fdb92422bfd9cae6fcbe144}{P\+E\+R\+M\+\_\+\+T\+Y\+P\+E}~0
+\item 
+\#define \hyperlink{arms__fgmres_8c_ad51ded0bbd705f02f73fc60c0b721ced}{B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E}~30
+\item 
+\#define \hyperlink{arms__fgmres_8c_aa0929d2caa57427a05635b453161bf76}{D\+I\+A\+G\+\_\+\+S\+C\+A\+L\+E}~1
+\item 
+\#define \hyperlink{arms__fgmres_8c_a5e7431a82a3aa84d4d8269e9636af6bb}{L\+F\+I\+L0}~50
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{arms__fgmres_8c_a897da0f867f3a74eb0bb1aa7b071db35}{arms\+\_\+fgmres\+\_\+} (int $\ast$n, double val\mbox{[}$\,$\mbox{]}, int col\+\_\+ind\mbox{[}$\,$\mbox{]}, int row\+\_\+ptr\mbox{[}$\,$\mbox{]}, double rhs\mbox{[}$\,$\mbox{]}, double solu\mbox{[}$\,$\mbox{]}, int $\ast$ierr)
+void \hyperlink{arms__fgmres_8c_ae4a98497107e4697e2e603b9d341c9b6}{arms\+\_\+fgmres\+\_\+} (int $\ast$N, double val\mbox{[}$\,$\mbox{]}, int col\+\_\+ind\mbox{[}$\,$\mbox{]}, int row\+\_\+ptr\mbox{[}$\,$\mbox{]}, double rhs\mbox{[}$\,$\mbox{]}, double sol\mbox{[}$\,$\mbox{]}, double init\mbox{[}$\,$\mbox{]}, int $\ast$ie)
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
-\hypertarget{arms__fgmres_8c_a0c77a091415b095c3e076d47c1f7e471}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!T\+O\+L\+\_\+\+D\+D@{T\+O\+L\+\_\+\+D\+D}}
-\index{T\+O\+L\+\_\+\+D\+D@{T\+O\+L\+\_\+\+D\+D}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
-\subsubsection[{T\+O\+L\+\_\+\+D\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+L\+\_\+\+D\+D~0.\+7   /$\ast$ diagonal dominance tolerance for $\ast$/}\label{arms__fgmres_8c_a0c77a091415b095c3e076d47c1f7e471}
+\subsection{Detailed Description}
+Calling I\+T\+S\+O\+L2 to solve linear equations. 
 
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{arms__fgmres_8c_ad51ded0bbd705f02f73fc60c0b721ced}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E@{B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E}}
+\index{B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E@{B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E~30}\label{arms__fgmres_8c_ad51ded0bbd705f02f73fc60c0b721ced}
+Smallest size allowed for last schur comp. \hypertarget{arms__fgmres_8c_aa0929d2caa57427a05635b453161bf76}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!D\+I\+A\+G\+\_\+\+S\+C\+A\+L\+E@{D\+I\+A\+G\+\_\+\+S\+C\+A\+L\+E}}
+\index{D\+I\+A\+G\+\_\+\+S\+C\+A\+L\+E@{D\+I\+A\+G\+\_\+\+S\+C\+A\+L\+E}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{D\+I\+A\+G\+\_\+\+S\+C\+A\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+I\+A\+G\+\_\+\+S\+C\+A\+L\+E~1}\label{arms__fgmres_8c_aa0929d2caa57427a05635b453161bf76}
+Diagonal scaling
+\begin{DoxyItemize}
+\item 0\+:no
+\item 1\+:yes 
+\end{DoxyItemize}\hypertarget{arms__fgmres_8c_a51c0dfe766601d31e907fceae818a7ca}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!I\+M@{I\+M}}
+\index{I\+M@{I\+M}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{I\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+M~60}\label{arms__fgmres_8c_a51c0dfe766601d31e907fceae818a7ca}
+Dimension of Krylov subspace in (outer) F\+G\+M\+R\+E\+S \hypertarget{arms__fgmres_8c_a5e7431a82a3aa84d4d8269e9636af6bb}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!L\+F\+I\+L0@{L\+F\+I\+L0}}
+\index{L\+F\+I\+L0@{L\+F\+I\+L0}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{L\+F\+I\+L0}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+F\+I\+L0~50}\label{arms__fgmres_8c_a5e7431a82a3aa84d4d8269e9636af6bb}
+Initial fill-\/in parameter \hypertarget{arms__fgmres_8c_ae3671b8892cf82f7b3b110cfc33d3bde}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+L\+E\+V@{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+L\+E\+V}}
+\index{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+L\+E\+V@{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+L\+E\+V}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+L\+E\+V}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+L\+E\+V~10}\label{arms__fgmres_8c_ae3671b8892cf82f7b3b110cfc33d3bde}
+Maximum number of levels for arms \hypertarget{arms__fgmres_8c_a7f03e4cf9d0205f40bb9a1a8ce839a68}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!M\+A\+X\+I\+T\+S@{M\+A\+X\+I\+T\+S}}
+\index{M\+A\+X\+I\+T\+S@{M\+A\+X\+I\+T\+S}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{M\+A\+X\+I\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+I\+T\+S~200}\label{arms__fgmres_8c_a7f03e4cf9d0205f40bb9a1a8ce839a68}
+Maximum number of outer iterations \hypertarget{arms__fgmres_8c_ae766191b1fdb92422bfd9cae6fcbe144}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!P\+E\+R\+M\+\_\+\+T\+Y\+P\+E@{P\+E\+R\+M\+\_\+\+T\+Y\+P\+E}}
+\index{P\+E\+R\+M\+\_\+\+T\+Y\+P\+E@{P\+E\+R\+M\+\_\+\+T\+Y\+P\+E}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{P\+E\+R\+M\+\_\+\+T\+Y\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+E\+R\+M\+\_\+\+T\+Y\+P\+E~0}\label{arms__fgmres_8c_ae766191b1fdb92422bfd9cae6fcbe144}
+Indset (0) / P\+Q (1) permutation, note that these refer to completely different methods for reordering A
+\begin{DoxyItemize}
+\item 0 = standard A\+R\+M\+S independent sets
+\item 1 = arms with dd\+P\+Q ordering
+\item 2 = acoarsening-\/based ordering \mbox{[}new\mbox{]} 
+\end{DoxyItemize}\hypertarget{arms__fgmres_8c_a156b862ebf6d213f5da19b9e3ccb779e}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!T\+O\+L@{T\+O\+L}}
+\index{T\+O\+L@{T\+O\+L}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{T\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+L~1.\+0e-\/8}\label{arms__fgmres_8c_a156b862ebf6d213f5da19b9e3ccb779e}
+Tolerance for stopping iteration \hypertarget{arms__fgmres_8c_a0c77a091415b095c3e076d47c1f7e471}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!T\+O\+L\+\_\+\+D\+D@{T\+O\+L\+\_\+\+D\+D}}
+\index{T\+O\+L\+\_\+\+D\+D@{T\+O\+L\+\_\+\+D\+D}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
+\subsubsection[{T\+O\+L\+\_\+\+D\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+L\+\_\+\+D\+D~0.\+7}\label{arms__fgmres_8c_a0c77a091415b095c3e076d47c1f7e471}
+Diagonal dominance tolerance for independent sets 
 
 \subsection{Function Documentation}
-\hypertarget{arms__fgmres_8c_a897da0f867f3a74eb0bb1aa7b071db35}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!arms\+\_\+fgmres\+\_\+@{arms\+\_\+fgmres\+\_\+}}
+\hypertarget{arms__fgmres_8c_ae4a98497107e4697e2e603b9d341c9b6}{}\index{arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}!arms\+\_\+fgmres\+\_\+@{arms\+\_\+fgmres\+\_\+}}
 \index{arms\+\_\+fgmres\+\_\+@{arms\+\_\+fgmres\+\_\+}!arms\+\_\+fgmres.\+c@{arms\+\_\+fgmres.\+c}}
 \subsubsection[{arms\+\_\+fgmres\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void arms\+\_\+fgmres\+\_\+ (
 \begin{DoxyParamCaption}
-\item[{int $\ast$}]{n, }
+\item[{int $\ast$}]{N, }
 \item[{double}]{val\mbox{[}$\,$\mbox{]}, }
 \item[{int}]{col\+\_\+ind\mbox{[}$\,$\mbox{]}, }
 \item[{int}]{row\+\_\+ptr\mbox{[}$\,$\mbox{]}, }
 \item[{double}]{rhs\mbox{[}$\,$\mbox{]}, }
-\item[{double}]{solu\mbox{[}$\,$\mbox{]}, }
-\item[{int $\ast$}]{ierr}
+\item[{double}]{sol\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{init\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{ie}
 \end{DoxyParamCaption}
-)}\label{arms__fgmres_8c_a897da0f867f3a74eb0bb1aa7b071db35}
-Solve a (square) system using A\+R\+M\+S preconditioned fgmres by calling I\+T\+S\+O\+L2. 
+)}\label{arms__fgmres_8c_ae4a98497107e4697e2e603b9d341c9b6}
+Solve a (square) system using A\+R\+M\+S preconditioned fgmres by calling I\+T\+S\+O\+L2. Adapted from \char`\"{}main\+A\+R\+M\+S.\+c\char`\"{} in I\+T\+S\+O\+L2/\+T\+E\+S\+T\+S. 
 \begin{DoxyParams}{Parameters}
-{\em n} & integer, number of rows. \\
+{\em N} & integer, number of rows. \\
 \hline
 {\em val} & real N\+N\+Z-\/by-\/1 array, coefficients. \\
 \hline
@@ -61,9 +121,11 @@ Solve a (square) system using A\+R\+M\+S preconditioned fgmres by calling I\+T\+
 \hline
 {\em rhs} & real N-\/by-\/1 array, the right hand side. \\
 \hline
-{\em solu} & real N-\/by-\/1 array, place for the solution. \\
+{\em sol} & (intent\+: inout) real N-\/by-\/1 array, place for the solution. \\
 \hline
-{\em ierr} & 0 if no error occurs. \\
+{\em init} & real N-\/by-\/1 array, initial guess. \\
+\hline
+{\em ie} & (intent\+: inout) 0 if no error occurs. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}

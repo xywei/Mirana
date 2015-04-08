@@ -100,6 +100,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">arms_fgmres.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Calling ITSOL2 to solve linear equations.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -118,29 +121,159 @@ Include dependency graph for arms_fgmres.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a0c77a091415b095c3e076d47c1f7e471"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#a0c77a091415b095c3e076d47c1f7e471">TOL_DD</a>&#160;&#160;&#160;0.7   /* diagonal dominance tolerance for */</td></tr>
+<tr class="memitem:a156b862ebf6d213f5da19b9e3ccb779e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#a156b862ebf6d213f5da19b9e3ccb779e">TOL</a>&#160;&#160;&#160;1.0e-8</td></tr>
+<tr class="separator:a156b862ebf6d213f5da19b9e3ccb779e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c77a091415b095c3e076d47c1f7e471"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#a0c77a091415b095c3e076d47c1f7e471">TOL_DD</a>&#160;&#160;&#160;0.7</td></tr>
 <tr class="separator:a0c77a091415b095c3e076d47c1f7e471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f03e4cf9d0205f40bb9a1a8ce839a68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#a7f03e4cf9d0205f40bb9a1a8ce839a68">MAXITS</a>&#160;&#160;&#160;200</td></tr>
+<tr class="separator:a7f03e4cf9d0205f40bb9a1a8ce839a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3671b8892cf82f7b3b110cfc33d3bde"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#ae3671b8892cf82f7b3b110cfc33d3bde">MAX_NUM_LEV</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:ae3671b8892cf82f7b3b110cfc33d3bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51c0dfe766601d31e907fceae818a7ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#a51c0dfe766601d31e907fceae818a7ca">IM</a>&#160;&#160;&#160;60</td></tr>
+<tr class="separator:a51c0dfe766601d31e907fceae818a7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae766191b1fdb92422bfd9cae6fcbe144"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#ae766191b1fdb92422bfd9cae6fcbe144">PERM_TYPE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ae766191b1fdb92422bfd9cae6fcbe144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51ded0bbd705f02f73fc60c0b721ced"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#ad51ded0bbd705f02f73fc60c0b721ced">BLOCK_SIZE</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:ad51ded0bbd705f02f73fc60c0b721ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0929d2caa57427a05635b453161bf76"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#aa0929d2caa57427a05635b453161bf76">DIAG_SCALE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aa0929d2caa57427a05635b453161bf76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e7431a82a3aa84d4d8269e9636af6bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#a5e7431a82a3aa84d4d8269e9636af6bb">LFIL0</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:a5e7431a82a3aa84d4d8269e9636af6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a897da0f867f3a74eb0bb1aa7b071db35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#a897da0f867f3a74eb0bb1aa7b071db35">arms_fgmres_</a> (int *n, double val[], int col_ind[], int row_ptr[], double rhs[], double solu[], int *ierr)</td></tr>
-<tr class="separator:a897da0f867f3a74eb0bb1aa7b071db35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4a98497107e4697e2e603b9d341c9b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arms__fgmres_8c.html#ae4a98497107e4697e2e603b9d341c9b6">arms_fgmres_</a> (int *N, double val[], int col_ind[], int row_ptr[], double rhs[], double sol[], double init[], int *ie)</td></tr>
+<tr class="separator:ae4a98497107e4697e2e603b9d341c9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Calling ITSOL2 to solve linear equations. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ad51ded0bbd705f02f73fc60c0b721ced"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BLOCK_SIZE&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Smallest size allowed for last schur comp. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa0929d2caa57427a05635b453161bf76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIAG_SCALE&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Diagonal scaling</p><ul>
+<li>0:no</li>
+<li>1:yes </li>
+</ul>
+
+</div>
+</div>
+<a class="anchor" id="a51c0dfe766601d31e907fceae818a7ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IM&#160;&#160;&#160;60</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dimension of Krylov subspace in (outer) FGMRES </p>
+
+</div>
+</div>
+<a class="anchor" id="a5e7431a82a3aa84d4d8269e9636af6bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LFIL0&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initial fill-in parameter </p>
+
+</div>
+</div>
+<a class="anchor" id="ae3671b8892cf82f7b3b110cfc33d3bde"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_NUM_LEV&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum number of levels for arms </p>
+
+</div>
+</div>
+<a class="anchor" id="a7f03e4cf9d0205f40bb9a1a8ce839a68"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAXITS&#160;&#160;&#160;200</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum number of outer iterations </p>
+
+</div>
+</div>
+<a class="anchor" id="ae766191b1fdb92422bfd9cae6fcbe144"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERM_TYPE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indset (0) / PQ (1) permutation, note that these refer to completely different methods for reordering A</p><ul>
+<li>0 = standard ARMS independent sets</li>
+<li>1 = arms with ddPQ ordering</li>
+<li>2 = acoarsening-based ordering [new] </li>
+</ul>
+
+</div>
+</div>
+<a class="anchor" id="a156b862ebf6d213f5da19b9e3ccb779e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOL&#160;&#160;&#160;1.0e-8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tolerance for stopping iteration </p>
+
+</div>
+</div>
 <a class="anchor" id="a0c77a091415b095c3e076d47c1f7e471"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOL_DD&#160;&#160;&#160;0.7   /* diagonal dominance tolerance for */</td>
+          <td class="memname">#define TOL_DD&#160;&#160;&#160;0.7</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Diagonal dominance tolerance for independent sets </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a897da0f867f3a74eb0bb1aa7b071db35"></a>
+<a class="anchor" id="ae4a98497107e4697e2e603b9d341c9b6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -148,7 +281,7 @@ Functions</h2></td></tr>
           <td class="memname">void arms_fgmres_ </td>
           <td>(</td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
+          <td class="paramname"><em>N</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -178,13 +311,19 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>solu</em>[], </td>
+          <td class="paramname"><em>sol</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>init</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>ierr</em>&#160;</td>
+          <td class="paramname"><em>ie</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -193,15 +332,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Solve a (square) system using ARMS preconditioned fgmres by calling ITSOL2. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Solve a (square) system using ARMS preconditioned fgmres by calling ITSOL2. Adapted from "mainARMS.c" in ITSOL2/TESTS. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>integer, number of rows. </td></tr>
+    <tr><td class="paramname">N</td><td>integer, number of rows. </td></tr>
     <tr><td class="paramname">val</td><td>real NNZ-by-1 array, coefficients. </td></tr>
     <tr><td class="paramname">col_ind</td><td>integer NNZ-by-1 array, column indices. </td></tr>
     <tr><td class="paramname">row_ptr</td><td>integer (N+1)-by-1 array, with the last element row_ptr[N] = NNZ+1. </td></tr>
     <tr><td class="paramname">rhs</td><td>real N-by-1 array, the right hand side. </td></tr>
-    <tr><td class="paramname">solu</td><td>real N-by-1 array, place for the solution. </td></tr>
-    <tr><td class="paramname">ierr</td><td>0 if no error occurs. </td></tr>
+    <tr><td class="paramname">sol</td><td>(intent: inout) real N-by-1 array, place for the solution. </td></tr>
+    <tr><td class="paramname">init</td><td>real N-by-1 array, initial guess. </td></tr>
+    <tr><td class="paramname">ie</td><td>(intent: inout) 0 if no error occurs. </td></tr>
   </table>
   </dd>
 </dl>
