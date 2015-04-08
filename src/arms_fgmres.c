@@ -75,9 +75,9 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   tmp = (double *) malloc(n*sizeof(double));
   
   mat->n = n;
-  mat->nzcount = (int *)Malloc( len*sizeof(int), "setupCS" );
-  mat->ja = (int **) Malloc( len*sizeof(int *), "setupCS" );
-  mat->ma = (double **) Malloc( len*sizeof(double *), "setupCS" );
+  mat->nzcount = (int *)Malloc( n*sizeof(int), "setupCS" );
+  mat->ja = (int **) Malloc( n*sizeof(int *), "setupCS" );
+  mat->ma = (double **) Malloc( n*sizeof(double *), "setupCS" );
   
   fprintf(flog,"!!!!!!!!!!!!!!!!\n");
 
