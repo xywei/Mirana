@@ -69,7 +69,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
 
   FILE *flog = stdout;
 
-  fprintf(flog, "Entering linear solver, initializing..\n");
+  fprintf(flog, "Entering linear solver, initializing (n=%d,nnz=%d)..\n",n,nnz);
   
   /*-------------------- setup data structure for mat (csptr) struct */
   tmp = (double *) malloc(n*sizeof(double));
@@ -99,7 +99,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
     }
 
   /*-------------------- Preconditioning using ARMS */
-  fprtintf(flog, "Done.\nSetting up ARMS preconditionor..\n");
+  fprintf(flog, "Done.\nSetting up ARMS preconditionor..\n");
   for (i=0; i<17; i++)
     ipar[i] = 0;
   
