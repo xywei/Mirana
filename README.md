@@ -21,6 +21,8 @@ Please send email to wxy0516@gmail.com to report bugs, request features, or ask 
 
 MIRANA is free software; you can redistribute it and/or modify it under the terms of The MIT License:
 
+Copyright (c) 2015 Xiaoyu WEI
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
