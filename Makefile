@@ -38,10 +38,13 @@ demo: ${DEMOSRC} ${MOD}/mirana.mod
 	$(FC) -L${ITSOL2}/LIB -o ${BIN}/example_4.o demo/example_4.f90 ${LIB}/*.o -litsol -llapack -lblas
 
 itsol2: ${ITSOL2}
-	cd src/latools/ITSOL_2 && \
+	cd ${ITSOL2} && \
 	mkdir -p OBJ && \
 	mkdir -p LIB && \
 	make
+
+sparskit: ${SPARSKIT2}
+	cd ${SPARSKIT2} && make
 
 clean :
 	rm -rf ${LIB} ${INCLUDE} ${BIN}

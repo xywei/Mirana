@@ -26,7 +26,7 @@ Program example_4
 
   row_ptr(n+1) = n+1  
 
-  write(*,*) row_ptr(n+1)
+  write(*,*) val
   write(*,*) "Hi, this is example 4, testing for linear solvers."
 
   call arms_fgmres(n,val,col_ind,row_ptr,rhs,solu,ierr)
