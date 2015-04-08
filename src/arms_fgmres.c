@@ -79,6 +79,8 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
     exit(0);
   }
 
+  fprintf(flog,"!!!!!!!!!!!!!!!!\n");
+
   /* Construct C-Style matrix from [val,col_ind,row-ptr] */
   for (k=0; k<n; k++)
     mat->nzcount[k] = row_ptr[k+1] - row_ptr[k];
