@@ -61,6 +61,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   int n = *N;
   int nnz = row_ptr[n] - 1;
   double fillfact, terr;
+  double tolind = TOL_DD;
 
   int ipar[18];
   double droptol[7], dropcoef[7];
@@ -85,19 +86,19 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   for (k=0; k<n; k++)
     {
      l = mat->nzcount[k];
+     i = row_ptr[k] - 1;
      if (l > 0)
        {
-       mat->ja[k] = (int *) malloc(l*sizeof(int));
-       mat->ma[k] = (double *) malloc(l*sizeof( double));
+	 mat->ja[k] = &(col_ind[i]);
+	 mat->ma[k] = &(val[i]);
+       }
+     else
+       {
+	 mat->ja[k] = NULL;
+	 mat->ma[k] = NULL;
        }
     }
-  for (k=0; k<n; k++)
-    {
-      l = row_ptr[k] - 1;
-      mat->ja[k] = &(col_ind[l]);
-      mat->ma[k] = &(val[l]);
-    }
-
+  
   /*-------------------- Preconditioning using ARMS */
   fprintf(flog, "Done.\nSetting up ARMS preconditionor..\n");
   for (i=0; i<17; i++)
@@ -140,7 +141,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   ArmsSt = (arms) malloc(sizeof(armsMat));
   setup_arms(ArmsSt);
 
-  ierr = arms2(mat, ipar, droptol, lfil_arr, TOL_DD, ArmsSt, flog);
+  ierr = arms2(mat, ipar, droptol, lfil_arr, tolind, ArmsSt, flog);
 
   fillfact = (double)nnz_arms(ArmsSt, flog)/(double)(nnz + 1);
   fprintf(flog, "ARMS ends, fill factor (mem used) = %f\n", fillfact);
