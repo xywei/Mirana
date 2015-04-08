@@ -74,11 +74,11 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   /*-------------------- setup data structure for mat (csptr) struct */
   tmp = (double *) malloc(n*sizeof(double));
   
-  if (setupCS(mat, n, job)) {
-    fprintf(flog," ERROR SETTING UP mat IN SETUPCS \n") ;
-    exit(0);
-  }
-
+  mat->n = n;
+  mat->nzcount = (int *)Malloc( len*sizeof(int), "setupCS" );
+  mat->ja = (int **) Malloc( len*sizeof(int *), "setupCS" );
+  mat->ma = (double **) Malloc( len*sizeof(double *), "setupCS" );
+  
   fprintf(flog,"!!!!!!!!!!!!!!!!\n");
 
   /* Construct C-Style matrix from [val,col_ind,row-ptr] */
