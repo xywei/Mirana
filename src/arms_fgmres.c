@@ -81,6 +81,8 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   mat->ma = (double **) Malloc( n*sizeof(double *), "setupCS" );
   
   /* Construct C-Style matrix from [val,col_ind,row-ptr] */
+  for (k=0; k<nnz; k++)
+    col_ind[k]--; // C array starts from 0
   for (k=0; k<n; k++)
     mat->nzcount[k] = row_ptr[k+1] - row_ptr[k];
   for (k=0; k<n; k++)
@@ -137,11 +139,11 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
     }
 
   fprintf(flog, "begin arms\n");
-  
+
   ArmsSt = (arms) malloc(sizeof(armsMat));
   setup_arms(ArmsSt);
 
-  ierr = arms2(mat, ipar, droptol, lfil_arr, tolind, ArmsSt, flog);
+    ierr = arms2(mat, ipar, droptol, lfil_arr, tolind, ArmsSt, flog);
 
   fillfact = (double)nnz_arms(ArmsSt, flog)/(double)(nnz + 1);
   fprintf(flog, "ARMS ends, fill factor (mem used) = %f\n", fillfact);

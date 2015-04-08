@@ -28,6 +28,8 @@ Program example_4
 
   row_ptr(n+1) = n+1  
 
+  write(*,*) "Hi, this is example 4, testing for linear solvers."
+  
   write(*,*) "Matrix val:"
   write(*,*) val
 
@@ -42,10 +44,11 @@ Program example_4
 
   write(*,*) "Initial guess:"
   write(*,*) init
-  
-  write(*,*) "Hi, this is example 4, testing for linear solvers."
 
   call arms_fgmres(n,val,col_ind,row_ptr,rhs,solu,init,ierr)
+
+  write(*,*) "Solution:"
+  write(*,*) solu
 
   write(*,*) "ierr = ",ierr,"."
   
