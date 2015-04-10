@@ -51,6 +51,6 @@ doxy:
 
 clean :
 	rm -rf ${LIB} ${INCLUDE} ${BIN}
-	cd ${ITSOL2} && make cleanall
-	cd ${SPARSKIT2} && make clean
+#	cd ${ITSOL2} && make cleanall
+#	cd ${SPARSKIT2} && make clean
 

@@ -3,28 +3,31 @@ Program example_3
   use Mirana
   implicit none
   integer, parameter :: n1 = 1000, n2 = 1000
-  double precision, parameter :: L = 1.9 !> A square domain
+  integer :: st1 = -10, st2 = -1, ed1, ed2
+  double precision, parameter :: L = 1.5 !> A square domain
   double precision :: h1,h2,e1,e2,elp,x,y
   integer :: i,j
   double precision, dimension(:,:),allocatable :: p,p1,p2,plp,mesh1,mesh2,jacob,xix,xiy,etx,ety,alpha,beta
-  allocate(p(n1,n2))
-  allocate(p1(n1,n2))
-  allocate(p2(n1,n2))
-  allocate(plp(n1,n2))
-  allocate(mesh1(n1,n2))
-  allocate(mesh2(n1,n2))
-  allocate(jacob(n1,n2))
-  allocate(xix(n1,n2))
-  allocate(xiy(n1,n2))
-  allocate(etx(n1,n2))
-  allocate(ety(n1,n2))
-  allocate(alpha(n1,n2))
-  allocate(beta(n1,n2))
+  ed1 = st1 + n1 - 1
+  ed2 = st2 + n2 - 1
+  allocate(p(st1:ed1,st2:ed2))
+  allocate(p1(st1:ed1,st2:ed2))
+  allocate(p2(st1:ed1,st2:ed2))
+  allocate(plp(st1:ed1,st2:ed2))
+  allocate(mesh1(st1:ed1,st2:ed2))
+  allocate(mesh2(st1:ed1,st2:ed2))
+  allocate(jacob(st1:ed1,st2:ed2))
+  allocate(xix(st1:ed1,st2:ed2))
+  allocate(xiy(st1:ed1,st2:ed2))
+  allocate(etx(st1:ed1,st2:ed2))
+  allocate(ety(st1:ed1,st2:ed2))
+  allocate(alpha(st1:ed1,st2:ed2))
+  allocate(beta(st1:ed1,st2:ed2))
   write(*,*) 'Hello, this is example_3, testing for differentiation in computational domain.'
   h1 = L / n1
   h2 = L / n2
-  do i = 1,n1
-     do j = 1,n2
+  do i = st1,ed1
+     do j = st2,ed2
         x = h1 * i - L/2
         y = h2 * j - L/2
         !> - The x-mesh \f$\xi=tanh(5x)\f$.
@@ -35,18 +38,18 @@ Program example_3
      end do
   end do
 
-  call nmd(mesh1,mesh2,h1,h2,jacob,xix,xiy,etx,ety)
-  call greek(mesh1,mesh2,xix,xiy,etx,ety,h1,h2,alpha,beta)
+  call nmd(mesh1,mesh2,h1,h2,st1,st2,jacob,xix,xiy,etx,ety)
+  call greek(mesh1,mesh2,xix,xiy,etx,ety,h1,h2,st1,st2,alpha,beta)
 
-  call nmd1(p,xix,etx,h1,h2,p1)
-  call nmd2(p,xiy,ety,h1,h2,p2)
-  call nmdlp(p,xix,xiy,etx,ety,alpha,beta,h1,h2,plp) 
+  call nmd1(p,xix,etx,h1,h2,st1,st2,p1)
+  call nmd2(p,xiy,ety,h1,h2,st1,st2,p2)
+  call nmdlp(p,xix,xiy,etx,ety,alpha,beta,h1,h2,st1,st2,plp) 
 
   e1 = 0
   e2 = 0
   elp = 0
-  do i = 2,n1-1
-     do j = 2,n2-1
+  do i = st1+1,ed1-1
+     do j = st2+1,ed2-1
         x = h1 * i - L/2
         y = h2 * j - L/2
         e1 = e1 + abs( p1(i,j) - ( 2*mesh1(i,j) + 3*mesh2(i,j) ) )
