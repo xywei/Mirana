@@ -91,8 +91,8 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
 
   FILE *flog = stdout;
 
-  fprintf(flog, "!---------------------------------------------------- \n");
-  fprintf(flog, "! Entering linear solver, initializing (n=%d,nnz=%d)..\n",n,nnz);
+  fprintf(flog, ">>>>>>>>>>>>>>> START OF LINEAR SOLVER OUTPUT <<<<<<<<<<<<<<< \n");
+  fprintf(flog, "Entering linear solver, initializing (n=%d,nnz=%d)..\n",n,nnz);
   
   /*-------------------- setup data structure for mat (csptr) struct */
   tmp = (double *) malloc(n*sizeof(double));
@@ -124,7 +124,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
     }
   
   /*-------------------- Preconditioning using ARMS */
-  fprintf(flog, "! Done.\nSetting up ARMS preconditionor..\n");
+  fprintf(flog, "Done.\nSetting up ARMS preconditionor..\n");
   for (i=0; i<17; i++)
     ipar[i] = 0;
   
@@ -160,7 +160,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
       droptol[i] = TOL * dropcoef[i];
     }
 
-  fprintf(flog, "! begin arms\n");
+  fprintf(flog, "begin arms\n");
 
   ArmsSt = (arms) malloc(sizeof(armsMat));
   setup_arms(ArmsSt);
@@ -168,11 +168,11 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
     ierr = arms2(mat, ipar, droptol, lfil_arr, tolind, ArmsSt, flog);
 
   fillfact = (double)nnz_arms(ArmsSt, flog)/(double)(nnz + 1);
-  fprintf(flog, "! ARMS ends, fill factor (mem used) = %f\n", fillfact);
+  fprintf(flog, "ARMS ends, fill factor (mem used) = %f\n", fillfact);
 
   /*---------------- get rough idea of cond number - exit if too big */
   if(condestArms(ArmsSt, sol, flog) != 0) {
-    fprintf(flog, "! Not attempting iterative solution: Cond number too big!\n");
+    fprintf(flog, "Not attempting iterative solution: Cond number too big!\n");
     ie[0] = 3;
     return;
   }
@@ -196,10 +196,10 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   ierr = fgmr(MAT, PRE, rhs, sol, TOL, IM, &its, NULL);
 
   if(its < MAXITS)
-    fprintf(flog, "! FGMR OK: converged in %d steps...\n", its);
+    fprintf(flog, "FGMR OK: converged in %d steps...\n", its);
   else
     {
-      fprintf(flog, "! FGMR not converged in %d steps...\n", MAXITS);
+      fprintf(flog, "FGMR not converged in %d steps...\n", MAXITS);
       ie[0] = 4;
       return;
     }
@@ -210,8 +210,8 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
   for(i = 0; i < n; i++)
     terr += (rhs[i] - tmp[i]) * (rhs[i] - tmp[i]);
   terr = sqrt(terr);
-  fprintf(flog, "! Residual norm: %lf.\n", terr);
-  fprintf(flog, "!---------------------------------------------------- \n");
+  fprintf(flog, "Residual norm: %lf.\n", terr);
+  fprintf(flog, ">>>>>>>>>>>>>>>> END OF LINEAR SOLVER OUTPUT <<<<<<<<<<<<<<<< \n");
   
   ie[0] = 0;
   free(tmp);
