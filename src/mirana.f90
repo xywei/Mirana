@@ -652,5 +652,15 @@ contains
     y2( st1:ed1, (/st2,ed2/) ) = y2( st1:ed1, (/st2+1,ed2-1/) )
     return
   end subroutine mbc_d
+
+  subroutine monitor1(px,pz,beta,g)
+  implicit none
+  double precision, allocatable, dimension(:,:), intent(in) :: px,pz
+  double precision, allocatable, dimension(:,:), intent(inout) :: g
+  double precision, intent(in) :: beta
+  g = sqrt( 1.0 + beta * (px**2 + pz**2) )
+
+  end subroutine monitor1
+
   
 end Module Mirana
