@@ -458,12 +458,12 @@ contains
 
   !> (Non-conservative Mesh DLP) Compute \f$\Delta\phi\f$ using mesh variables
   !! @param phi N1-by-N2 real matrix.
-  !! @param xix N1-by-N2 real matrix, \f$\partial\xi\partial x\f$.
-  !! @param xiy N1-by-N2 real matrix, \f$\partial\xi\partial y\f$.
-  !! @param etx N1-by-N2 real matrix, \f$\partial\eta\partial x\f$.
-  !! @param ety N1-by-N2 real matrix, \f$\partial\eta\partial y\f$.
-  !! @param alp N1-by-N2 real matrix, obtained from greek().
-  !! @param bet N1-by-N2 real matrix, obtained from greek().
+  !! @param xix (N1-1)-by-(N2-1) real matrix, \f$\partial\xi\partial x\f$.
+  !! @param xiy (N1-1)-by-(N2-1) real matrix, \f$\partial\xi\partial y\f$.
+  !! @param etx (N1-1)-by-(N2-1) real matrix, \f$\partial\eta\partial x\f$.
+  !! @param ety (N1-1)-by-(N2-1) real matrix, \f$\partial\eta\partial y\f$.
+  !! @param alp (N1-1)-by-(N2-1) real matrix, obtained from greek().
+  !! @param bet (N1-1)-by-(N2-1) real matrix, obtained from greek().
   !! @param h1 real number, step size in \f$\xi\f$ axis.
   !! @param h2 real number, step size in \f$\eta\f$ axis.
   !! @param st1 integer, starting index in dimension 1.
