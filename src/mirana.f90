@@ -653,14 +653,24 @@ contains
     return
   end subroutine mbc_d
 
-  subroutine monitor1(px,pz,beta,g)
+  !> Compute the monitor function \f$\omega\f$.
+  !! @param px, N1-by-N2 real array, resulted from call nmd1(mx,hxi,x1).
+  !! @param pz, N1-by-N2 real array, resulted from call nmd2(mx,het,x2).
+  !! @param beta, real number, weitght parameter.
+  !! @param st1 integer, starting index in dimension 1.
+  !! @param st2 integer, starting index in dimension 2.
+  !! @return g, monitor function.
+  subroutine monitor1(px,pz,beta,st1,st2,g)
   implicit none
   double precision, allocatable, dimension(:,:), intent(in) :: px,pz
   double precision, allocatable, dimension(:,:), intent(inout) :: g
   double precision, intent(in) :: beta
-  g = sqrt( 1.0 + beta * (px**2 + pz**2) )
-
+  integer :: n1,n2,ed1,ed2
+  n1 = size(px,1)
+  n2 = size(px,2)
+  ed1 = st1 + n1 - 1
+  ed2 = st2 + n2 - 1
+  g(st1:ed1,st2:ed2) = sqrt( 1.0 + beta * (px(st1:ed1,st2:ed2)**2 + pz(st1:ed1,st2:ed2)**2) )
   end subroutine monitor1
-
   
 end Module Mirana
