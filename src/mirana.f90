@@ -468,15 +468,16 @@ contains
   !! @param h2 real number, step size in \f$\eta\f$ axis.
   !! @param st1 integer, starting index in dimension 1.
   !! @param st2 integer, starting index in dimension 2.
-  !! @return phi_lp N1-by-N2 real matrix, only [2:N1-1]X[2:N2-1] are used.
+  !! @return phi_lp (N1-1)-by-(N2-1) real matrix, only [2:N1-1]X[2:N2-1] are used.
   subroutine nmdlp(phi,xix,xiy,etx,ety,alp,bet,h1,h2,st1,st2,phi_lp)
     implicit none
-    integer :: n1,n2,ed1,ed2
+    integer :: n1,n2,ed1,ed2,i
     double precision, intent(in) :: h1,h2
     integer, intent(in) :: st1,st2
     double precision, allocatable, dimension(:,:), intent(in) :: phi,alp,bet,xix,xiy,etx,ety
     double precision, allocatable, dimension(:,:), intent(inout) :: phi_lp
     double precision, allocatable, dimension(:,:) :: phi1,phi2,phi11,phi12,phi22
+    integer, allocatable, dimension(:) :: kk,ll
     if ( .not.allocated(phi) .or. .not.allocated(xix) .or. &
          .not.allocated(etx) .or. .not.allocated(xiy) .or. &
          .not.allocated(ety) .or. .not.allocated(alp) .or. &
@@ -487,6 +488,14 @@ contains
     n2 = size(phi,2)
     ed1 = st1 + n1 - 1
     ed2 = st2 + n2 - 1
+    allocate( kk (n1-2) )
+    allocate( ll (n2-2) )
+    do i = 1,n1-2
+       kk(i) = st1 + i
+    end do
+    do i = 1,n2-2
+       ll(i) = st2 + i
+    end do    
     allocate( phi1(st1:ed1,st2:ed2) )
     allocate( phi2(st1:ed1,st2:ed2) )
     allocate( phi11(st1:ed1,st2:ed2) )
@@ -498,8 +507,8 @@ contains
     call d12(phi,h1,h2,st1,st2,phi12)
     call d22(phi,h2,st1,st2,phi22)
     !===============================
-    phi_lp = (xix**2 + xiy**2) * phi11 + (etx**2 + ety**2) * phi22 + &
-         2.0 * (xix*etx + xiy*ety) * phi12 + alp * phi1 + bet * phi2
+    phi_lp(kk,ll) = (xix(kk,ll)**2 + xiy(kk,ll)**2) * phi11(kk,ll) + (etx(kk,ll)**2 + ety(kk,ll)**2) * phi22(kk,ll) + &
+         2.0 * (xix(kk,ll)*etx(kk,ll) + xiy(kk,ll)*ety(kk,ll)) * phi12(kk,ll) + alp(kk,ll) * phi1(kk,ll) + bet(kk,ll) * phi2(kk,ll)
     !===============================    
     deallocate( phi1 )
     deallocate( phi2 )
