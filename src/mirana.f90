@@ -662,6 +662,7 @@ contains
   !! @return g, monitor function.
   subroutine monitor1(px,pz,beta,st1,st2,g)
   implicit none
+  integer, intent(in) :: st1,st2
   double precision, allocatable, dimension(:,:), intent(in) :: px,pz
   double precision, allocatable, dimension(:,:), intent(inout) :: g
   double precision, intent(in) :: beta

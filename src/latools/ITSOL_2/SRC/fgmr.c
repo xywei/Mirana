@@ -86,7 +86,7 @@ int fgmr(SMatptr Amat, SPreptr lu, double *rhs, double *sol,
 /*-------------------- Krylov loop*/
     i = -1;
     pti=pti1=0;
-    while((i < im-1) && (beta > eps1) && (its++ < maxits))  {
+    while( (its++ < maxits) && (i < im-1) && (beta > eps1) )  {
       i++;
       i1   = i+1; 
       pti  = i*n;

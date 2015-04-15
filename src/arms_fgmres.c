@@ -22,7 +22,7 @@
 /*! \def TOL_DD
  Diagonal dominance tolerance for independent sets */
 
-#define MAXITS 200
+#define MAXITS 1
 /** \def MAXITS
  Maximum number of outer iterations */
 
@@ -193,7 +193,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
 
   /*-------------------- Solving using FGEMRES */
   its = MAXITS;
-  ierr = fgmr(MAT, PRE, rhs, sol, TOL, IM, &its, NULL);
+  ierr = fgmr(MAT, PRE, rhs, sol, TOL, IM, &its, flog);
 
   if(its < MAXITS)
     fprintf(flog, "FGMR OK: converged in %d steps...\n", its);
