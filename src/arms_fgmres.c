@@ -22,7 +22,7 @@
 /*! \def TOL_DD
  Diagonal dominance tolerance for independent sets */
 
-#define MAXITS 1
+#define MAXITS 200
 /** \def MAXITS
  Maximum number of outer iterations */
 
