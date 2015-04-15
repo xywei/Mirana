@@ -91,7 +91,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
 
   FILE *flog = stdout;
 
-  fprintf(flog, ">>>>>>>>>>>>>>> START OF LINEAR SOLVER OUTPUT <<<<<<<<<<<<<<< \n");
+  fprintf(flog, "   >>> START OF LINEAR SOLVER OUTPUT\n");
   fprintf(flog, "Entering linear solver, initializing (n=%d,nnz=%d)..\n",n,nnz);
   
   /*-------------------- setup data structure for mat (csptr) struct */
@@ -211,7 +211,7 @@ void arms_fgmres_(int * N, double val[], int col_ind[], int row_ptr[], \
     terr += (rhs[i] - tmp[i]) * (rhs[i] - tmp[i]);
   terr = sqrt(terr);
   fprintf(flog, "Residual norm: %lf.\n", terr);
-  fprintf(flog, ">>>>>>>>>>>>>>>> END OF LINEAR SOLVER OUTPUT <<<<<<<<<<<<<<<< \n");
+  fprintf(flog, "   >>> END OF LINEAR SOLVER OUTPUT\n");
   
   ie[0] = 0;
   free(tmp);

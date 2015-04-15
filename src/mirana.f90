@@ -78,6 +78,7 @@ contains
        end do
        write(233,*) " "
     end do
+    close(233)
   end subroutine save_mesh
   
   !> Differentiate with respect to the first dimension using central difference.
@@ -621,8 +622,17 @@ contains
     deallocate( etyh2 )
     return
   end subroutine greek
-  
 
+  !> Mesh speed determination using non-conservative formulae.
+  subroutine nm_speed(phix,phiz,meshx,meshz,st1,st2,xt,zt)
+    implicit none
+    integer, intent(in) :: st1,st2
+    double precision, allocatable, dimension(:,:), intent(in) :: phix,phiz,meshx,meshz
+    double precision, allocatable, dimension(:,:), intent(inout) :: xt,zt
+    xt = 0.0
+    zt = 0.0    
+  end subroutine nm_speed
+  
   !> (Mesh Boundary Condition for Derivatives) Set the boundary condition of the moving mesh.
   !! @note Be sure to call Mirana::d1 and Mirana::d2 on the mesh before calling this subroutine!
   !! @param x1, N1-by-N2 real array, resulted from call d1(mx,hxi,x1).
@@ -653,7 +663,7 @@ contains
     return
   end subroutine mbc_d
 
-  !> Compute the monitor function \f$\omega\f$.
+  !> Compute the bulk monitor function \f$\omega\f$.
   !! @param px, N1-by-N2 real array, resulted from call nmd1(mx,hxi,x1).
   !! @param pz, N1-by-N2 real array, resulted from call nmd2(mx,het,x2).
   !! @param beta, real number, weitght parameter.
@@ -672,6 +682,25 @@ contains
   ed1 = st1 + n1 - 1
   ed2 = st2 + n2 - 1
   g(st1:ed1,st2:ed2) = sqrt( 1.0 + beta * (px(st1:ed1,st2:ed2)**2 + pz(st1:ed1,st2:ed2)**2) )
-  end subroutine monitor1
+end subroutine monitor1
+
+  !> Compute the boundary monitor function \f$\omega\f$.
+  !! @param px, N1-by-N2 real array, resulted from call nmd1(mx,hxi,x1).
+  !! @param pz, N1-by-N2 real array, resulted from call nmd2(mx,het,x2).
+  !! @param beta, real number, weitght parameter.
+  !! @param st1 integer, starting index in dimension 1.
+  !! @param st2 integer, starting index in dimension 2.
+  !! @return g, monitor function.
+  subroutine monitor1_b(px,beta,st1,g)
+  implicit none
+  integer, intent(in) :: st1
+  double precision, allocatable, dimension(:), intent(in) :: px
+  double precision, allocatable, dimension(:), intent(inout) :: g
+  double precision, intent(in) :: beta
+  integer :: n1,ed1
+  n1 = size(px,1)
+  ed1 = st1 + n1 - 1
+  g(st1:ed1) = sqrt( 1.0 + beta * px(st1:ed1)**2 ) 
+  end subroutine monitor1_b
   
 end Module Mirana
