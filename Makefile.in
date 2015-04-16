@@ -1,2 +1,3 @@
-FC = ifort
-CC = icc
+CC=icc
+FC=ifort
+MIRANA=/staff/ma/xweiaf/workspace/Mirana

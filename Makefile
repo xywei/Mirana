@@ -4,6 +4,7 @@ include Makefile.in
 
 AR = ar
 ITSOL2 = ./src/latools/ITSOL_2
+PV = ./src/utils/pv-1.6.0
 SPARSKIT2 = ./src/latools/SPARSKIT2
 ITSOL2_OBJ = ${ITSOL2}/OBJ/arms2.o ${ITSOL2}/OBJ/auxill.o ${ITSOL2}/OBJ/fgmr.o \
 ${ITSOL2}/OBJ/indsetC.o ${ITSOL2}/OBJ/MatOps.o ${ITSOL2}/OBJ/misc.o ${ITSOL2}/OBJ/setblks.o \
@@ -23,6 +24,7 @@ demo/example_3.f90  demo/example_4.f90
 
 all: src/mirana.f90 src/arms_fgmres.c
 	make itsol2
+	make pv
 	mkdir -p ${LIB}
 	mkdir -p ${MOD}
 	cd ${MOD}  && \
@@ -42,6 +44,12 @@ itsol2: ${ITSOL2}
 	mkdir -p OBJ && \
 	mkdir -p LIB && \
 	make
+
+pv: ${PV}
+	cd ${PV} && \
+	./configure --prefix=${MIRANA} && \
+	make && \
+	make install
 
 sparskit: ${SPARSKIT2}
 	cd ${SPARSKIT2} && make

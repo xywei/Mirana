@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo CC=icc > Makefile.in
+echo FC=ifort >> Makefile.in
+echo -n MIRANA= >> Makefile.in
+pwd >> Makefile.in
